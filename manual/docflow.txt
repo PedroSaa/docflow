@@ -1,0 +1,1189 @@
+1 04-abril-18
+1
+Tecnología y Servicios S.A.
+Sistema Control de Documentos
+Manual de Operación
+2 04-abril-18
+2
+ Contenido
+1 SISTEMA CONTROL DE DOCUMENTOS DOCFLOW ............................................................................ 6
+1.1 OBJETIVO GENERAL ..................................................................................................................................... 6
+2 Ingreso Sistema DocFlow ....................................................................................................................... 7
+3 Pantalla Inicial ......................................................................................................................................... 8
+4 Expedientes ............................................................................................................................................. 9
+4.1 Generar un Expediente ..................................................................................................................................11
+4.1.1 Hitos............................................................................................................................ 12
+4.1.2 Vencimiento. ............................................................................................................... 13
+4.1.3 Lista de Control ........................................................................................................... 13
+4.1.4 Documentos ................................................................................................................ 13
+4.1.5 Referencias ................................................................................................................. 15
+4.1.6 Observaciones ............................................................................................................ 15
+4.1.7 Compartir .................................................................................................................... 15
+5 Bandeja de Entrada ............................................................................................................................... 16
+5.1 Información ....................................................................................................................................................16
+5.2 Filtros .............................................................................................................................................................18
+5.2.1 Fechas ........................................................................................................................ 18
+5.2.2 Tipo de Documento .................................................................................................... 18
+5.2.3 Número documento .................................................................................................... 18
+5.2.4 Materia ........................................................................................................................ 19
+5.3 Filtros de búsqueda avanzados. ...................................................................................................................19
+5.3.1 Contenido ................................................................................................................... 19
+5.3.2 Correlativo .................................................................................................................. 19
+5.3.3 Formato documento. ................................................................................................... 20
+5.3.4 Estado......................................................................................................................... 20
+5.3.5 Clasificación ................................................................................................................ 20
+5.3.6 Prioridad ..................................................................................................................... 20
+5.3.7 Origen y Destino ......................................................................................................... 20
+5.3.8 Catalogamiento ........................................................................................................... 21
+5.3.9 Búsqueda de documentos con ................................................................................... 22
+6 Acciones por realizar con el Documento ............................................................................................ 22
+6.1 Visualizar Documento ...................................................................................................................................23
+6.2 Modificar .........................................................................................................................................................24
+6.3 Recibir ............................................................................................................................................................25
+6.4 Enviar .............................................................................................................................................................25
+6.5 Reenviar .........................................................................................................................................................25
+6.6 Devolver .........................................................................................................................................................25
+6.7 Archivar ..........................................................................................................................................................25
+6.8 Anular .............................................................................................................................................................26
+7 Datos del Documento............................................................................................................................ 27
+7.1 Tareas .............................................................................................................................................................27
+7.2 Historia ...........................................................................................................................................................29
+7.3 Imágenes ........................................................................................................................................................30
+7.4 Adjuntos .........................................................................................................................................................30
+7.5 Observaciones ...............................................................................................................................................32
+7.6 Referencias ....................................................................................................................................................33
+3 04-abril-18
+3
+8 Registro de Documentos ...................................................................................................................... 34
+8.1 Registrar un Documento recibido .................................................................................................................34
+8.1.1 Origen ......................................................................................................................... 36
+8.1.2 Formato ...................................................................................................................... 37
+8.1.3 Número ....................................................................................................................... 37
+8.1.4 Catalogamiento ........................................................................................................... 37
+8.1.5 Clasificación ................................................................................................................ 37
+8.1.6 Prioridad ..................................................................................................................... 37
+8.1.7 Fecha Ingreso ............................................................................................................. 38
+8.1.1 Fecha Origen .............................................................................................................. 38
+8.1.1 Fecha Recepción ........................................................................................................ 38
+8.1.2 Hora de Recepción ..................................................................................................... 38
+8.1.3 Fecha Expiración ........................................................................................................ 38
+8.1.4 Materia ........................................................................................................................ 38
+8.1.5 Destinos Internos ........................................................................................................ 39
+8.2 Registrar un Documento Enviado .................................................................................................................40
+8.2.1 Formato ...................................................................................................................... 40
+8.2.2 Catalogamiento ........................................................................................................... 40
+8.2.3 Crear Documento ....................................................................................................... 41
+8.2.4 Autorizar Documento .................................................................................................. 42
+8.2.5 Firma electrónica ........................................................................................................ 43
+8.2.6 Notificar Despacho ..................................................................................................... 45
+8.2.7 Selección de Destinos Externos ................................................................................. 45
+8.2.8 Selección de Destinos Internos .................................................................................. 46
+8.3 Registrar un Documento Interno ..................................................................................................................46
+9 Despachar Documentos ....................................................................................................................... 49
+9.1 Despacho a Tramite Interno ..........................................................................................................................49
+9.2 Despacho al Exterior .....................................................................................................................................49
+10 TAREAS .................................................................................................................................................. 51
+10.1 Creación de una Tarea...................................................................................................................................51
+10.2 Consultar Tareas ...........................................................................................................................................53
+11 Archivadores. ........................................................................................................................................ 55
+11.1 Crear un Archivador ......................................................................................................................................56
+12 Reportes. ................................................................................................................................................ 57
+12.1 Imprimir por Rango de Correlativos .............................................................................................................57
+12.2 Listado despacho Interno por Depto. (Hoja de Distribución)......................................................................58
+12.3 Listado Diario y Mensual por Departamento ................................................................................................58
+12.4 Listado Diario y Mensual por Formato de Documentos ..............................................................................59
+12.5 Listado Despacho Interno por Departamento ..............................................................................................59
+12.6 Imprimir Documentos No Recibidos ............................................................................................................60
+12.7 Estadísticas ....................................................................................................................................................60
+12.8 Informe Documento Reservado ....................................................................................................................61
+12.9 Informe Auditoría ...........................................................................................................................................61
+12.10 Informe Firma Digital .....................................................................................................................................61
+12.11 Informe Control de Acceso ...........................................................................................................................61
+12.12 Imprimir Nombre Funcionario .......................................................................................................................62
+12.13 Imprimir por rango correlativo ......................................................................................................................62
+13 Consulta ................................................................................................................................................. 63
+4 04-abril-18
+4
+14 Descripción de Términos ...................................................................................................................... 64
+14.1 Estados...........................................................................................................................................................64
+14.1.1 Estados Documento Recibido. .................................................................................... 64
+14.1.2 Estados Documento Enviado ...................................................................................... 65
+14.1.3 Estados Documento Interno ....................................................................................... 67
+Fig. 2-1 .................................................................................................................... 7
+Fig. 2-2 .................................................................................................................... 8
+Fig. 3-1 .................................................................................................................... 8
+Fig. 4-1 .................................................................................................................. 10
+Fig. 4-2 .................................................................................................................. 11
+Fig. 4-3 .................................................................................................................. 12
+Fig. 4-4 .................................................................................................................. 13
+Fig. 4-5 .................................................................................................................. 13
+Fig. 5-1 .................................................................................................................. 16
+Fig. 5-2 .................................................................................................................. 17
+Fig. 5-3 .................................................................................................................. 17
+Fig. 5-4 .................................................................................................................. 18
+Fig. 5-5 .................................................................................................................. 19
+Fig. 5-6 .................................................................................................................. 20
+Fig. 5-7 .................................................................................................................. 21
+Fig. 5-8 .................................................................................................................. 21
+Fig. 5-9 .................................................................................................................. 22
+Fig. 6-1 .................................................................................................................. 22
+Fig. 6-2 .................................................................................................................. 23
+Fig. 6-3 .................................................................................................................. 23
+Fig. 6-4 .................................................................................................................. 24
+Fig. 6-5 .................................................................................................................. 25
+Fig. 6-6 .................................................................................................................. 26
+Fig. 7-1 .................................................................................................................. 27
+Fig. 7-2 .................................................................................................................. 27
+Fig. 7-3 .................................................................................................................. 29
+Fig. 7-4 .................................................................................................................. 29
+Fig. 7-5 .................................................................................................................. 30
+Fig. 7-6 .................................................................................................................. 31
+Fig. 7-7 .................................................................................................................. 31
+Fig. 7-8 .................................................................................................................. 32
+Fig. 7-9 .................................................................................................................. 32
+Fig. 7-10 ................................................................................................................ 33
+Fig. 7-11 ................................................................................................................ 33
+Fig. 8-1 .................................................................................................................. 34
+Fig. 8-2 .................................................................................................................. 35
+Fig. 8-3 .................................................................................................................. 36
+Fig. 8-4 .................................................................................................................. 36
+Fig. 8-5 .................................................................................................................. 37
+Fig. 8-6 .................................................................................................................. 38
+Fig. 8-7 .................................................................................................................. 39
+5 04-abril-18
+5
+Fig. 8-8 .................................................................................................................. 39
+Fig. 8-9 .................................................................................................................. 40
+Fig. 8-10 ................................................................................................................ 41
+Fig. 8-11 ................................................................................................................ 41
+Fig. 8-12 ................................................................................................................ 42
+Fig. 8-13 ................................................................................................................ 42
+Fig. 8-14 ................................................................................................................ 43
+Fig. 8-15 ................................................................................................................ 43
+Fig. 8-16 ................................................................................................................ 44
+Fig.8-17 ................................................................................................................. 44
+Fig. 8-18 ................................................................................................................ 45
+Fig. 8-19 ................................................................................................................ 45
+Fig. 8-20 ................................................................................................................ 46
+Fig. 8-21 ................................................................................................................ 46
+Fig. 8-22 ................................................................................................................ 47
+Fig. 8-23 ................................................................................................................ 47
+Fig. 8-24 ................................................................................................................ 48
+Fig. 8-25 ................................................................................................................ 48
+Fig. 9-1 .................................................................................................................. 49
+Fig. 9-2 .................................................................................................................. 50
+Fig. 10-1 ................................................................................................................ 51
+Fig. 10-2 ................................................................................................................ 51
+Fig. 10-3 ................................................................................................................ 53
+Fig. 10-4 ................................................................................................................ 54
+Fig. 10-5 ................................................................................................................ 54
+Fig. 11-1 ................................................................................................................ 55
+Fig. 11-2 ................................................................................................................ 55
+Fig. 11-3 ................................................................................................................ 56
+Fig. 12-1 ................................................................................................................ 57
+Fig. 12-2 ................................................................................................................ 58
+Fig. 12-3 ................................................................................................................ 58
+Fig. 12-4 ................................................................................................................ 59
+Fig. 12-5 ................................................................................................................ 59
+Fig. 12-6 ................................................................................................................ 60
+Fig. 12-7 ................................................................................................................ 60
+Fig. 12-8 ................................................................................................................ 61
+Fig. 12-9 ................................................................................................................ 61
+Fig. 12-10 .............................................................................................................. 62
+Fig. 13-1 ................................................................................................................ 63
+6 04-abril-18
+6
+1 SISTEMA CONTROL DE DOCUMENTOS DOCFLOW
+La Empresa Tecnología y Servicios S.A. (TyS) ha desarrollado
+una poderosa herramienta basada en las normas de ISO 9000 para el
+control de la documentación que se recibe y se despacha dentro de
+una organización.
+Este software ha sido, además, creado como una alternativa
+práctica a un WorkFlow. Si bien es cierto, la tecnología actual apunta
+hacia el documento digital, por la “cultura del papel” es difícil lograr un
+cambio radical. DocFlow se presenta como una alternativa evolutiva y
+de fácil manejo para los usuarios del sistema documental en papel, sin
+grandes cambios de la metodología actual, lo que facilita su
+implementación en un breve período de tiempo.
+1.1 OBJETIVO GENERAL
+Tiene como Objetivo mantener un registro electrónico de la
+documentación emitida, recibida e interna en la Organización ya sea
+en soporte digital o soporte papel, almacenando el contenido de dichos
+documentos en un motor de base de datos. -
+Generar la documentación electrónica, registrando su flujo de
+aprobación, con las debidas aprobaciones para la firma final, antes del
+despacho del documento, ya sea con firma tradicional o firma
+electrónica.
+Conocer el estado de cumplimiento de las acciones o tareas
+que ha generado un documento, y su trazabilidad, historia y auditoría.
+- Mantener un histórico de la documentación
+7 04-abril-18
+7
+2 Ingreso Sistema DocFlow
+Se ingresa directamente desde el browser, ingresando la url
+entregada por el administrador del sistema.
+Al iniciar el Sistema, se presenta la interfaz de seguridad (Fig.
+2-1), donde se debe seleccionar e ingresar el nombre del Usuario y
+su Contraseña.
+Como seguridad adicional, se le ha incorporado el Hatch que indica
+que no es un robot
+Fig. 2-1
+Estos datos le muestran al Sistema que el usuario puede tener uno o
+más cargos y debe ingresar con el que requiere en ese momento. Para
+ello deberá tener las autorizaciones correspondientes objeto efectuar
+las distintas operaciones. Dicho perfil debe estar previamente
+ingresado a través del módulo de Seguridad, que es responsabilidad
+del Administrador del DocFlow.
+8 04-abril-18
+8
+Fig. 2-2
+Posteriormente a dicha selección se muestra la pantalla indicada en
+Fig. 3-1 que señala la documentación y tareas pendientes que tiene el usuario. –
+3 Pantalla Inicial
+Fig. 3-1
+En los rectángulos indicadores en la parte superior indica
+1. La cantidad de documentos que están sin respuesta,
+2. Cuáles son las tareas que se deben controlar
+3. Tareas pendientes que debo ejecutar,
+4. Son aquellos documentos no leídos que están en la bandeja de
+entrada disponibles para su lectura
+Al costado izquierdo se indica:
+Expedientes,
+Bandeja de entrada,
+Registro de documentos,
+9 04-abril-18
+9
+Tareas
+Archivadores
+Reportes
+En el costado superior derecho, se muestran 3 figuras. que en esta
+versión no aplican y el ícono que indica cerrar sesión.
+La imagen indica la cantidad de avisos o notificaciones que he recibido. Al
+abrir dicha imagen , muestra todas las notificaciones.
+Fig. 3-2
+Al presionar Ver todas la modificaciones aparece el Listado de notificaciones (Fig
+3-3)
+Fig. 3-3
+Para hacerlas desaparecer se debe marcar “Leer Todas”, lo que da por leidas
+todas
+4 Expedientes
+Los expedientes son una cantidad de documentos que se necesita visualizar como
+un todo y por lo tanto ver cada uno de los documentos que lo conforman. -
+Cada expediente lo crea quien lo requiera y al enviarlo, envía todos los
+documentos asociados a este
+En la pantalla de expedientes aparecen en Mis Expedientes los que han sido de
+mi autoría y en Compartidos conmigo, los expedientes creados por otros usuarios
+al cual se tiene acceso
+10 04-abril-18
+10
+Fig. 4-1
+Para generar un Expediente se debe presionar botón Crear Exp.
+En la parte derecha tiene indicado como Modificar, Compartir o Eliminar un
+expediente.
+Al Compartir un Expediente, se está autorizando la visualización de todos los
+documentos que lo conforman. El color indica que el expediente está compartido
+No se pueden eliminar expedientes que contengan información, ni expedientes del
+cual no se es el autor.-
+11 04-abril-18
+11
+4.1 Generar un Expediente
+Al ingresar un nuevo expediente se muestra la siguiente pantalla
+Fig. 4-1
+Al generar un nuevo Expediente, aparece una pantalla que solicita la siguiente
+información
+Nombre que llevará el expediente
+Número, Es Catalogamiento que lo asigna el creador del expediente
+Descripción, en donde se debe ingresar la descripción lo más detallada posible
+Para registrar la operación debe grabar presionando el ícono “Crear Expediente”.
+El expediente generado aparece en grilla EXPEDIENTES, indicando su autor y
+fecha de creación y el estado que tenga. Inicialmente está en un estado pendiente
+Fig. 4-2
+12 04-abril-18
+12
+4.1.1 Hitos
+Cada expediente puede tener diferentes hitos, para conocer en forma rápida
+cuales son los puntos de control que se requieran. Puede haber tantos hitos como
+sean definidos y cada uno de estos puede tener uno o varios documentos
+relacionados con esta etapa del expediente
+Cada Hito tiene un nombre, una fecha de creación y el creador de éste
+Para crear uno se debe presionar Registrar Hito y aparece la nueva pantalla
+Fig. 4-3
+Se ingresa el Nombre y el número de ordenamiento, que no es otro que el número
+de precedencia.
+Una vez ingresado los datos para grabarles se debe presionar
+13 04-abril-18
+13
+4.1.2 Vencimiento.
+La pestaña del vencimiento está indicando una fecha de control
+4.1.3 Lista de Control
+Fig. 4-4
+La Lista de Control, permite identificar cuáles son los documentos que debieran ir
+dentro del expediente si fuera necesario.
+Para ello se debe ingresar el título en la línea que dice Añada un Elemento. Una
+vez hecho eso se debe presionar el ícono Añadir, dejando grabado el título.
+Para Eliminar debe posicionarse en el ícono .
+4.1.4 Documentos
+Es donde se muestran todos los documentos que hay en el expediente
+Fig. 4-5
+Posicionándose en el título del documento este se muestra en la siguiente pantalla
+14 04-abril-18
+14
+Fig. 4-6
+Al presionar el ícono se mostrará el contenido del documento tal como se
+muestra en la figura siguiente
+Fig. 4-7
+Posteriormente puede ver toda la información del documento tal como se indica en
+punto 6.1
+15 04-abril-18
+15
+4.1.5 Referencias
+Es donde se muestran todos los documentos referenciados por los que existen en
+el expediente
+4.1.6 Observaciones
+Indica las observaciones registradas en el expediente
+4.1.7 Compartir
+Opción para compartir el expediente. Los usuarios recibirán todos los documentos
+que están incluidos en dicho expediente, pudiendo agregar más documentos si es
+necesario
+16 04-abril-18
+16
+5 Bandeja de Entrada
+En la bandeja de entrada parecen los documentos que están entre las fechas
+indicadas que son los únicos filtros al ingresar inicialmente. Existen diferentes
+tipos de filtros que son excluyentes e inicialmente se muestran solo las fechas, tipo
+de documento, Número del Documento, la Materia de qué trata y el Correlativo.
+Otros Filtros están ocultos en, y el detalle de estos será explicado más adelante:
+Fig. 5-1
+5.1 Información
+En la pantalla que se muestra en la Fig. 5-1, bajo el filtro de fechas
+aparecen las siguientes acciones. Seleccionar, Destacados, No
+Recibido, Todos los Registrados, Recibir, Devolver, Anular las cuales
+pueden ser para más de un documento. Las acciones individuales para
+cada documento están en la figura que permite al marcarla
+El detalle de los filtros secundarios está en la figura siguiente
+Fig. 5-2
+teniendo la marca indica que están activados.
+17 04-abril-18
+17
+5.1.1 Documentos Destacados
+Los documentos destacados son aquellos que estando registrados en el
+DocFlow, se requiere una atención permanente, ya sea por su importancia o por el
+control detallado del cumplimiento de las tareas. Cada usuario puede destacar su
+propio documento, lo que se verá reflejado en su bandeja de entrada, a pesar que
+no cumpla con las restricciones de los filtros de búsqueda
+5.1.2 Recibir , Devolver o Anular
+Para efectuar el proceso de Recepción o Devolución o Anulación del documento
+se marca en el cuadro a la izquierda de los números, bajo la columna Corre. Y
+posteriormente se presiona en nombre de la acción que se desea realizar. Una vez
+hecho esto aparece el siguiente aviso, que para continuar debe presionar Cerrar
+Fig. 5-3
+La siguiente columna T, I, A, R, O indican si el documento tiene T=Tareas,
+I=Imagen, A=Adjunto, R=Referencias, O=Observaciones
+Fig. 5-4
+18 04-abril-18
+18
+Cada una de esas indicaciones está representada como se ve en la figura, por
+ejemplo significan imagen y adjunto respectivamente. -
+5.2 Filtros
+En la Fig. 5-1 se indican los filtros que pueden ser empleados para encontrar un
+documento
+5.2.1 Fechas
+Se puede indicar el rango de fechas en que está el documento buscado.
+Esto se hace colocando el cursor en el ícono y al presionar el botón derecho
+aparecerá el calendario del (Fig. 5-4). Se debe marcar la fecha deseada de inicio de
+búsqueda.
+Para la Fecha Final de búsqueda se hace el mismo procedimiento, dejando el
+rango de fechas definido para encontrar el documento. -
+Fig. 5-5
+5.2.2 Tipo de Documento
+Estos pueden ser
+Recibidos, los que llegan a oficina de partes desde el exterior.
+Enviados, los que se generan en la Organización con un destino externo
+Internos, los que se generan en la Organización con un destino interno
+5.2.3 Número documento
+Se debe ingresar el número del documento, que puede ser distinto al
+correlativo.
+Una vez ingresado, aparecerán todos los documentos que tengan
+ese número
+19 04-abril-18
+19
+5.2.4 Materia
+Al ingresar una palabra selecciona aquellos documentos que tienen
+esa palabra en su campo materia. Este es un filtro muy útil por cuanto se
+puede ingresar todas las palabras que permitan facilitar la búsqueda de un
+documento
+5.3 Filtros de búsqueda avanzados.
+En la siguiente figura se destacan los posibles filtros que se pueden
+ocupar para una rápida búsqueda de los Documentos.
+En beneficio a la celeridad de la tramitación de documentos se crean una
+serie de filtros de búsqueda.
+Fig. 5-6
+Tales como los señalados en la imagen superior. A continuación, se detallarán los
+campos.
+5.3.1 Contenido
+Se define contenido al texto escrito en el documento. Para los
+documentos recibidos que vienen en soporte papel, solo se puede
+ingresar el contenido si al documento escaneado se le efectúa un
+proceso de OCR. Si el documento es digital se puede agregar
+directamente. Siempre DocFlow mantiene la imagen del documento
+recibido para verificar que es el auténtico.
+5.3.2 Correlativo
+Selecciona un documento que contenga el número correlativo
+ingresado en el campo indicado. (Fig. 5-5)
+20 04-abril-18
+20
+5.3.3 Formato documento.
+Selecciona el Formato del documento según la clasificación hecha por
+los usuarios. La definición de formatos es útil para buscar, por ejemplo:
+Oficios, Facturas, Ficha Control, etc.
+Fig. 5-7
+5.3.4 Estado
+El estado del documento puede ser muy útil cuando se desea ver que
+documentos han sido enviados, devueltos, archivados o cerrados. El No
+recibido indica que el documento está en mi bandeja de entrada, pero
+aún no se ha recibido
+5.3.5 Clasificación
+Esto nos permite buscar documentos que tengan algún grado de
+reserva. Por ejemplo, Reservado, Ordinario, Publico
+5.3.6 Prioridad
+Para seleccionar aquellos documentos que sean Urgentes o Normales
+5.3.7 Origen y Destino
+Es acá donde se selecciona el originador del documento.
+Es la lista de remitentes que tiene la Organización.
+Considerando lo fácil que estos datos pueden repetirse se sugiere que
+sea solo el administrador del sistema que vaya registrando los
+remitentes para evitar la duplicidad.
+21 04-abril-18
+21
+Fig. 5-8
+5.3.8 Catalogamiento
+El Catalogamiento se entiende como una manera de agrupar
+documentos bajo un mismo tema
+El sistema permite registrar cualquier carácter que venga en un
+documento recibido, sin embargo en los documentos enviados, este
+registro se conforma de la siguiente manera:
+Número de Catalogamiento/Número del Nivel que genera el
+Documento/Número Correlativo, quedando de esta forma para el
+documento 100 que trata del DocFlow, generado por Gerencia 30/10/100
+Fig. 5-9
+22 04-abril-18
+22
+5.3.9 Búsqueda de documentos con
+Cuando se requiera seleccionar uno varios documentos que tengan
+imagen, y/o adjuntos. O aquellos que tengan Tareas Observaciones o
+Referencias.
+Se marca el cuadrado y aparecerán todos los documentos
+que cumplan dichas restricciones
+Fig. 5-10
+6 Acciones por realizar con el Documento
+En la Fig. 6-1, bandeja de entrada, al costado derecho se indican los primeros
+documentos que se pueden visualizar de acuerdo con los criterios de filtros
+empleados
+Fig. 6-1
+En la parte inferior izquierda indica que está mostrando los documento encontrados
+de acuerdo con los criterios de búsqueda
+23 04-abril-18
+23
+6.1 Visualizar Documento
+Al posicionarse sobre la Columna Formatos donde dice Carta, aparece la
+siguiente pantalla donde se muestra el detalle del documento
+Fig. 6-2
+En esta pantalla se puede leer completa la carta buscada. Para continuar
+trabajando con el mismo documento, al costado derecho haciendo scroll e baja la
+imagen, hasta que aparece la siguiente información
+Fig. 6-3
+La información que entrega esta pantalla permite saber si el documento tiene
+contenido, tareas, imágenes, adjuntos, observaciones y/o referencias y la cantidad
+de cada uno de ellos se muestra en el número indicado en el círculo de colores.
+24 04-abril-18
+24
+En la parte superior están indicadas las diferentes acciones que se puede hacer
+con el documento. A saber:
+Fig. 6-4
+6.2 Modificar
+Cuando el documento está en estado ingresado y se requiere corregir algún dato
+esta es la acción que debe ejecutarse, y aparecerá la pantalla abierta para los
+cambios que sean necesarios, guardándolos cuando se presiona el botón
+actualizar
+ESTE BOTON SOLO APARECE SI ES UN DOCUMENTO CON ESTADO INGRESADO, puesto
+que no se puede modificar un documento que se ha despachado y/o recibido
+25 04-abril-18
+25
+6.3 Recibir
+Para recibir el documento solo es necesario presionar el botón recibir
+6.4 Enviar
+Para poder enviar el documento este debe encontrarse como Ingresado. En
+cualquier otro estado el documento se debe reenviar
+6.5 Reenviar
+Al tener un documento recibido, y considerar necesario enviarlo a otro usuario,
+esta es la acción que debe ejecutarse. Al presionar el botón reenvío aparecerá la
+pantalla
+Fig. 6-5
+En donde se desplegarán la lista de niveles a los cuales está autorizado a
+despachar, seleccionando uno o varios, al costado izquierdo. Una vez
+seleccionados estos destinos aparecerán en el lado derecho.
+Para completar la acción se debe presionar el botón enviar.
+6.6 Devolver
+El devolver un documento se utiliza cuando se ha recibido un documento
+equivocado y siempre que tenga un estado de NO RECIBIDO.
+6.7 Archivar
+Cuando un documento se necesite ordenar junto con otros, haciendo un símil de
+las carpetas o archivadores, se puede archivar el documento en un archivador
+previamente creado empleando la siguiente pantalla
+26 04-abril-18
+26
+Fig. 6-6
+Se debe seleccionar el archivador en el que se desea guardar el documento y
+presionar el botón cerrar, completando la acción, lo que se verá indicado en el
+Estado que cambiará de recibido a Archivado e indica el Archivador al cual fue
+asociado
+6.8 Anular
+Cuando el documento está en estado ingresado y se requiere anularlo esta es la
+acción que debe ejecutarse, y se cambiará de estado ingresado ha anulado. En
+este estado no se puede hacer nada más con el documento. IMPORTANTE. Una
+vez registrado un documento este no puede eliminarse
+27 04-abril-18
+27
+7 Datos del Documento
+Cada documento puede traer varios tipos de datos que están directamente
+relacionados con el contenido de dicho documento y que se desglosan a
+continuación
+7.1 Tareas
+Fig. 7-1
+En la pantalla, para ingresar una nueva tarea se presiona el ícono y aparece
+Fig. 7-2
+28 04-abril-18
+28
+En ella se debe seleccionar el nivel responsable, dentro de la lista de niveles
+que aparece.
+Los niveles que se muestran son aquellos que solo se tienen
+autorización, dada por el administrador del sistema.
+Una vez seleccionado el nivel, se debe elegir el Usuario Ejecutor
+para cumplir la tarea.
+La glosa de la tarea se indica seleccionando alguna de las acciones
+predefinidas de estas, complementándola en la Observación.
+Ingresado lo anterior debe indicarse la fecha de vencimiento de dicha
+tarea
+Solo en la opción de documentos recibidos, se puede marcar
+Responder con Documento, ya que esta tarea genera un proceso
+distinto a las otras.
+Cuando se marca Responder con Documento, inmediatamente el
+DocFlow indica que hay un documento Pendiente y marca como
+destino el nivel del ejecutor. Posteriormente al recibir la tarea y
+responderla, el DocFlow carga un documento con los datos del
+remitente para facilitar la respuesta
+Una vez terminado de ingresar para grabar los datos se debe
+confirmar en el botón y posteriormente cerrar.
+IMPORTANTE. Si se crea una Tarea y el documento no se envía, la tarea
+tampoco se enviará. Debe destacarse que al seleccionar un Ejecutor de la Tarea,
+el documento será envíado una vez que se despache, a los destinos indicados en
+el documento y al Ejecutor. Cada Tarea va asociada a un documento.-
+Una vez envíado el documento, se pueden agregar las tareas que sean
+necesarias al documento y será avisado el ejecutor mediante correo que tiene
+una nueva tarea, sin necesidad de reenviar el documento.-
+29 04-abril-18
+29
+Una vez creada la tarea en la pantalla queda reflejado el cambio indicando
+quien es el Ejecutor, el Mandante ,Días pendientes
+Fig. 7-3
+Presionando ícono Retornar.-
+Aparece la siguiente pantalla de los detalles del documento, con las acciones que
+se pueden efectuar. Acá se visualizan todas las características del documento
+7.2 Historia
+En historia solo mostrará los eventos generados por el documento y seguirá
+creciendo hasta que el documento esté cerrado, indicando
+Fig. 7-4
+30 04-abril-18
+30
+7.3 Imágenes
+El ingreso de imágenes se utiliza para almacenar el documento escaneado.
+El proceso OCR está en el módulo correspondiente
+Fig. 7-5
+Para efectuar este proceso hay que presionar el botón subir imagen y aparece
+una nueva pantalla que permite buscar el documento escaneado y guardarlo en la
+base de datos.
+7.4 Adjuntos
+El concepto de Adjunto se refiere a ingresar cualquier archivo que sea
+recibido, exceptuando los documentos, ya que esos estarán almacenados como
+imagen.
+Para guardar los documentos está la opción imagen, en donde se guarda la
+imagen del documento y se puede visualizar más fácilmente.
+El adjunto entonces es para los archivos tales como presentaciones, Excel,
+videos, fotos, música, planos, pdf.
+31 04-abril-18
+31
+Fig. 7-6
+Para bajar el adjunto hay que posicionar el mouse y se podrá abrir el archivo
+Para agregar un adjunto hay que presionar el botón subir Archivo y aparece
+una nueva pantalla que permite buscar el archivo que se desea adjuntar.
+Fig. 7-7
+32 04-abril-18
+32
+7.5 Observaciones
+El concepto de las observaciones, tal como su nombre lo indica, es aportar ideas u
+opiniones respecto al documento. NO es una tarea, porque el sistema no tiene
+control de cumplimiento de una observación
+Fig. 7-8
+Para ingresar una Observación, se debe presionar Nueva Observación y se
+mostrara la pantalla indicada en la Fig. 6-13
+Fig. 7-9
+Se debe ingresar lo que se desea transmitir y para finalizar debe presionar ícono
+Crear Obs.
+La Observación creada, tendrá su autor y seguirá al documento por donde este
+circule
+33 04-abril-18
+33
+7.6 Referencias
+Las referencias es la opción de relacionar documentos ya almacenados en el
+DocFlow con el documento que se está ingresando
+Fig. 7-10
+Para efectuar este procedimiento, se debe presionar ícono Buscar y referenciar
+doc.
+Mostrándose la Fig. 7-11, en donde se pueden buscar los documentos de acuerdo
+con los filtros. Una vez encontrado el requerido se selecciona marcando el circulo
+a la izquierda, dejando relacionado los documentos
+Fig. 7-11
+34 04-abril-18
+34
+8 Registro de Documentos
+Según se puede ver en Fig. 8-1, están las siguientes opciones:
+Fig. 8-1
+8.1 Registrar un Documento recibido
+El ingreso de documentos es uno de los principales procedimientos del
+sistema, ya que mediante este se provee de la información esencial para el
+registro y control de la documentación recibida. Es por ello por lo que debe
+realizarse correctamente, ayudando así lograr el objetivo.
+Un Documento Recibido es aquel documento que llega desde el exterior de
+la Organización y normalmente se recibe a través de la Oficina de Partes
+correspondiente
+Registrar documento
+Recibido
+Casilla de Documentos
+Recibidos
+Crear Documento Enviado
+Crear Documento Interno
+35 04-abril-18
+35
+Lo primero que aparece es la pantalla Fig. 6-2 en donde se deben registrar los
+siguientes campos y al finalizar debe presionar botón Registrar Documento para
+registrar lo anotado. Si hay algún dato faltante, se indicará el error y no grabará la
+información.
+Fig. 8-2
+Se indicará la secuencia de ingreso de los datos requeridos
+36 04-abril-18
+36
+8.1.1 Origen
+Obliga a
+registrar el
+remitente del
+documento,
+eligiéndolo de una
+lista en el combo
+box Buscar
+Origen.
+Se muestra
+parte del listado de
+remitente,
+indicando su
+código y nombre
+Fig. 8-3
+Si no existiera, se debe ingresar el remitente, clasificándolo de acuerdo con las
+indicaciones de la organización y presionando botón Registrar Origen, se mostrará
+la siguiente pantalla para su ingreso
+Fig. 8-4
+37 04-abril-18
+37
+Los siguientes datos se debe ingresar obligatoriamente
+Código Remitente: Se asigna un nombre corto que facilite su identificación
+Nombre: El Nombre o Razón Social del Remitente
+Tipo Remitente: Se ha definido como tipo de Remitente a una Agrupación de
+estos por actividad, los cuales están parametrizados por el administrador del
+sistema. Está basado en que, si se desea buscar por ejemplos por
+instituciones gubernamentales, debiera haber un tipo Gobierno, etc.
+Se recomienda el ingreso del RUT siempre que sea posible, ya que esto ayuda a
+evitar la duplicidad de datos, en el registro de los remitentes
+8.1.2 Formato
+En donde se selecciona el formato que trae el documento
+8.1.3 Número
+Se copia el número que trae el documento. Si no lo trae se le deberá asignar uno,
+de acuerdo con la política de la organización
+8.1.4 Catalogamiento
+Se clasifica el documento según su Catalogamiento. Depende de la organización
+si usa esta agrupación de temas
+Fig. 8-5
+El sistema permite registrar el número que trae el documento, sin embargo, si
+este viene en el formato xxxx/yyyy/zzz donde xxxx=número de
+Catalogamiento, yyyy=número del departamento originador, y zzz=Correlativo
+de este departamento.
+Es optativo registrar el Catalogamiento al recibir un documento, teniendo en
+cuenta que, si es la misma organización, tendrán el mismo Catalogamiento y
+por lo tanto el número xxxx debe ingresarse en Catalogamiento, además del
+número completo
+8.1.5 Clasificación
+Indica el grado de reserva del documento (Reservado, Ordinario, Publico)
+8.1.6 Prioridad
+Debe indicar si es Urgente o Normal
+38 04-abril-18
+38
+8.1.7 Fecha Ingreso
+La Fecha Ingreso la registra el sistema con la fecha del servidor. No se
+puede alterar
+8.1.1 Fecha Origen
+La Fecha de origen es la fecha que trae el Documento y se debe ingresar
+manualmente.
+8.1.1 Fecha Recepción
+La Fecha de Recepción es la fecha que se recepciona el Documento y se
+debe ingresar manualmente.
+8.1.2 Hora de Recepción
+Es en conjunto con la fecha de recepción que el sistema registra
+automáticamente cuando se ingresa un documento
+8.1.3 Fecha Expiración
+La Fecha Expiración. Indica en qué fecha se estima que el documento
+quedará obsoleto y podría ingresar al histórico. -
+8.1.4 Materia
+Materia del Documento. Esto significa que se ingresa una breve descripción
+de lo que trata dicho documento. Cada palabra ingresada servirá como criterio de
+búsqueda.
+Terminado el ingreso de los datos iniciales del documento se debe seguir con
+las otras acciones sobre el documento.
+Fig. 8-6
+Inmediatamente aparece la siguiente pantalla (Fig. 8-7)
+Para grabar lo ingresado se
+debe presionar el ícono
+39 04-abril-18
+39
+Fig. 8-7
+8.1.5 Destinos Internos
+Una vez ingresado el documento recibido por Oficina de Partes,
+esta debe enviarlo a otro Nivel o Departamento o a varios de ellos, para
+lo cual tiene que seleccionar el o los destinos de envío, marcándolos
+con un ticket verde al lado derecho de la pantalla
+Fig. 8-8
+40 04-abril-18
+40
+Una vez hecho esto el documento está listo para su despacho. Es
+necesario indicar que, si se generó una tarea a este documento,
+automáticamente se marca como destino al ejecutor de la tarea.
+Si está marcado Frecuentes solo aparecerán los destinos más
+frecuentes de ese formato de documento, de lo contrario aparecerán
+todos los posibles destinos definidos por la organización.
+8.2 Registrar un Documento Enviado
+Para ingresar un documento enviado, este se debe crear en el sistema,
+ingresando primero la meta data y después el contenido o texto del documento en
+la pantalla
+Fig. 8-9
+8.2.1 Formato
+Es muy importante seleccionar el correcto formato del documento, ya que
+normalmente cada formato debiera tener una plantilla ya almacenada con los
+detalles y la posición, en la plantilla, de la firma electrónica
+8.2.2 Catalogamiento
+Al ingresar el Catalogamiento, este se reflejará en la numeración final del
+documento
+Terminado el ingreso de estos datos se procede a grabar los datos anotados
+presionando el ícono .
+41 04-abril-18
+41
+Una vez efectuado el paso anterior aparece la siguiente pantalla, mostrando los
+datos ya ingresados del documento , dejando listo el sistema para escribir el
+documento basado en la plantilla que corresponde al formato seleccionado
+Fig. 8-10
+Posicionándose en el ícono , aparecerá lo que se visualiza en
+Fig. 8-11
+8.2.3 Crear Documento
+Al abrir esta muestra la plantilla para que el documento sea redactado
+correctamente y se escriba en él lo necesario
+Fig. 8-11
+42 04-abril-18
+42
+En este formato de cotización ya representado en la pantalla se va modificando de
+acuerdo con lo que se desee escribir. Terminado el documento se presiona el
+icono save para guardar lo escrito. Es importante grabar el documento antes
+de salir, porque si esto no se hace no se grabará y debera ingresar todo de nuevo
+Para seguridad de esto el sistema mediante el siguiente mensaje
+Fig. 8-12
+Para salir de la pantalla se debe presionar el icono en la parte
+superior derecha de la pantalla.
+Una vez efectuado esto aparece según se ve en la Fig 6-21 que el documento
+quedó registrado, pudiendose visualizar presionando el icono
+8.2.4 Autorizar Documento
+Autorizar el documento es informar al nivel superior que recibirá este,
+que ha sido visado y autorizado por quien se lo envío, objeto no tenga
+dudas de la veracidad del documento, de su autor y de su fecha y hora.
+Fig. 8-13
+Aparece el documento como se muestra en la Fig superior donde se
+presiona el ícono Autorizar, y posteriormente se graba el documento de la
+misma forma explicada en el punto anterior
+43 04-abril-18
+43
+Fig. 8-14
+Esto se puede verificar al abrir el documento con el lector de pdf acrobat reader
+donde indica al costado izquierdo que dicho documento está firmado por
+docflow16.
+8.2.5 Firma electrónica
+El documento se firma electrónicamente, por la o las personas
+autorizadas para ello, debiendo posicionarse en el icono que dice firmar.
+Hecho esto, se despliega el siguiente mensaje
+Fig. 8-15
+Presionando el botón SI, el documento queda firmado electrónicamente,
+lo que se puede comprobar en lo que indica el documento en pdf.
+El sistema firma el documento en un editor de texto, y una vez firmado se
+transforma en un archivo pdf, para ser transmitido, y es el propio pdf el
+que lleva la autenticación como se muestra en la fig. 8-16, en donde se
+indica cada firma efectuada en el documento
+44 04-abril-18
+44
+Fig. 8-16
+Al salir del proceso de firma, en la pantalla aparece el estado del documento como
+firmado
+Fig.8-17
+45 04-abril-18
+45
+8.2.6 Notificar Despacho
+Esto significa que una vez despachado al exterior, se le enviará copia a quienes
+estén registrados como usuarios que necesitan saber del despacho de este
+documento
+Fig. 8-18
+8.2.7 Selección de Destinos Externos
+Para completar el despacho de un documento enviado, se debe seleccionar el o
+los Destinos Externos donde debe ir el documento, proceso por el cual se busca y
+se elige el Remitente o Destino Externo
+Fig. 8-19
+46 04-abril-18
+46
+8.2.8 Selección de Destinos Internos
+Una vez seleccionado el destino externo, se debe seleccionar el destino interno
+para iniciar el trámite del documento. Esto se hace eligiendo el nivel al cual voy a
+despachar el documento para seguir su tramitación.
+Fig. 8-20
+8.3 Registrar un Documento Interno
+Se define como aquel documento que circula dentro de las dependencias
+de la Organización.-
+El procedimiento de creación es similar al del documento enviado, y se diferencian
+que el interno requiere solo ingresar el destino interno
+Fig. 8-21
+47 04-abril-18
+47
+Se ha ingresado un Memorandum (MEMO) catalogado en Boletas
+Compras, Ordinario y de prioridad Normal.
+En la materia se indica que son Instrucciones sobre manejo de Boletas de
+Compra
+Escrito lo anterior, se guarda el documento y aparece la siguiente pantalla
+Fig. 8-22
+Y a continuación se acciona Documento para escribirlo, donde aparece la
+siguiente pantalla, en donde debo activar el icono para continuar con
+el proceso
+Fig. 8-23
+Ahora se abre la plantilla del documento y queda listo para ingresar el texto, según
+se muestra en Fig. 8-24
+48 04-abril-18
+48
+Fig. 8-24
+Acá se muestra el documento ya completado.
+Fig. 8-25
+49 04-abril-18
+49
+El proceso de Guardar, Autorizar y Firmar es el mismo explicado para un
+documento enviado
+9 Despachar Documentos
+Una vez ingresado el documento y sus acciones relacionadas, falta solo
+despacharlo para su trámite interno y posterior envío al exterior
+9.1 Despacho a Tramite Interno
+Este es el primer despacho que debe hacerse, ya que debe firmarse el
+documento y posteriormente enviarlo a la oficina de partes que es la única que
+normalmente tiene autorización para enviar al exterior.
+El usuario que recibe el documento procede a firmarlo o autorizarlo y seguir con el
+trámite
+9.2 Despacho al Exterior
+Cuando está firmado el documento este debe enviarse a la Oficina de Partes para
+su despacho.
+Primero se debe recibir y después presionando el ícono Enviar a Tramite, aparece
+la pantalla que indica Confirmar despacho al exterior
+Fig. 9-1
+Efectuada dicha acción el sistema pregunta por que medio se despachará dicho
+documento, objeto quede registrado en la historia de éste.
+50 04-abril-18
+50
+Fig. 9-2
+Existe la alternativa de registrar quien se lleva la correspondencia, anotando el
+nombre, Rut y Courier si corresponde
+51 04-abril-18
+51
+10 TAREAS
+La generación y control de las tareas es una de las funciones fundamentales para
+la gestión de las acciones que genera un documento. -
+No se puede generar una tarea sin tener un documento asociado y por lo tanto su
+ingreso se hace cuando se está generando un documento.
+También se pueden agregar tareas a cualquier documento ya ingresado
+10.1 Creación de una Tarea
+Al presionar Tareas al lado izquierdo de la pantalla, se muestra la cantidad de
+tareas que tiene el documento y la opción de ingresar una nueva tarea
+Fig. 10-1
+Al ingresar una nueva tarea se muestra la pantalla de ingreso
+Fig. 10-2
+En ella se debe seleccionar el nivel responsable, dentro de la lista de niveles
+que aparece.
+52 04-abril-18
+52
+Los niveles que se muestran son aquellos que solo se tienen
+autorización, dada por el administrador del sistema.
+Una vez seleccionado el nivel, se debe elegir el Usuario Ejecutor para
+cumplir la tarea.
+La glosa de la tarea se indica seleccionando alguna de las acciones
+predefinidas de estas, complementándola en la Observación.
+Ingresado lo anterior debe indicarse la fecha de vencimiento de dicha
+tarea
+Solo en la opción de documentos recibidos, se puede marcar Responder con
+Documento, ya que esta tarea genera un proceso distinto a las otras.
+Cuando se marca Responder con Documento, inmediatamente el DocFlow
+indica que hay un documento Pendiente y marca como destino el nivel del ejecutor.
+Posteriormente al recibir la tarea y responderla, el DocFlow carga un documento
+con los datos del remitente para facilitar la respuesta
+Una vez terminado de ingresar para grabar los datos se debe confirmar en el
+botón
+y posteriormente cerrar.
+IMPORTANTE. Si se crea una Tarea y el documento no se envía, la tarea
+tampoco se enviará. Cada Tarea va asociada a un documento.-
+Una vez envíado el documento, si se puedene agregar tareas a este y será
+avisado el ejecutor mediante correo que tiene una nueva tarea.
+53 04-abril-18
+53
+10.2 Consultar Tareas
+La pantalla 10-3 presenta los filtros para buscar las tareas y en el
+costado derecho
+Fig. 10-3
+aparecen los datos de aquellas tareas buscadas mediante el icono
+Estos datos indican
+Documento que tiene la Tarea
+Responsable o Ejecutor de la Tarea
+Autor o Generador de la Tarea
+Fecha de Respuesta de dicha Tarea
+Acción a Tomar
+Descripción de la Tarea
+Estado de la Tarea, que puede ser pendiente, cumplida o semicumplida
+Al presionar el icono se muestra la siguiente pantalla de
+selección de tareas para generar un reporte, de acuerdo con los
+criterios de selección que alli se indican
+54 04-abril-18
+54
+Fig. 10-4
+Reporte escrito en pdf
+Fig. 10-5
+55 04-abril-18
+55
+11 Archivadores.
+La pantalla 11-1 muestra la lista de archivadores o carpetas que mantienen los documentos físicos
+(soporte papel), indicando el nombre de la carpeta y la cantidad de documentos que contiene.
+Posicionándose en el número de documentos (icono azul), aparece debajo de la pantalla la
+cantidad de documentos, para seleccionarlos y poder visualizarlos
+Fig. 11-1
+Fig. 11-2
+56 04-abril-18
+56
+11.1 Crear un Archivador
+Para crear un nuevo archivador se presiona el icono y se despliega
+la pantalla Fig 11-3
+Fig. 11-3
+Acá se deben ingresar los datos indicados para lograr una pronta ubicación de los
+archivadores y por lo tanto de los documentos.
+El proceso de archivar un documento se efectúa cuando se está trabajando con el
+documento, explicado en los capítulos anteriores
+57 04-abril-18
+57
+12 Reportes.
+Habilita las estadísticas e impresión los documentos creados. (Fig. 12-1)
+Fig. 12-1
+12.1 Imprimir por Rango de Correlativos
+Para este reporte se deben seleccionar el rango de fechas, el Tipo de
+Documento y el rango de correlativos (Fig. 12-2)
+58 04-abril-18
+58
+Fig. 12-2
+12.2 Listado despacho Interno por Depto. (Hoja de Distribución)
+Para este reporte se deben seleccionar el rango de fechas, el rango de correlativos.
+(Fig. 12-2)
+12.3 Listado Diario y Mensual por Departamento
+Para este reporte se deben seleccionar el rango de fechas, el rango de
+correlativos y seleccionar el departamento.
+Fig. 12-3
+59 04-abril-18
+59
+12.4 Listado Diario y Mensual por Formato de Documentos
+Para este reporte se deben seleccionar el rango de fechas, el tipo de
+documento y seleccionar el formato de documento.
+Fig. 12-4
+12.5 Listado Despacho Interno por Departamento
+Para este reporte se deben seleccionar el rango de fechas y tipo de
+documento. (Fig. 12-5)
+Fig. 12-5
+60 04-abril-18
+60
+12.6 Imprimir Documentos No Recibidos
+Es la relación de los documentos que no han sido recibidos entre fechas y por
+departamentos
+Fig. 12-6
+12.7 Estadísticas
+Para este reporte se deben seleccionar el rango de fechas y el departamento. Y se indicará las
+estadísticas de las tareas
+Fig. 12-7
+61 04-abril-18
+61
+12.8 Informe Documento Reservado
+Para este reporte se deben seleccionar el rango de fechas y el tipo de documento. (Fig. 12-8)
+Fig. 12-8
+12.9 Informe Auditoría
+Para este reporte se deben seleccionar el rango de fechas y el tipo de documento. (Fig. 12-8)
+12.10 Informe Firma Digital
+Para este reporte se deben seleccionar el rango de fechas y el tipo de documento. (Fig. 12-8)
+12.11 Informe Control de Acceso
+Para este reporte se debe seleccionar el usuario. (Fig. 12-9)
+Fig. 12-9
+62 04-abril-18
+62
+12.12 Imprimir Nombre Funcionario
+Fig. 12-10
+12.13 Imprimir por rango correlativo
+63 04-abril-18
+63
+13 Consulta
+Para poder buscar un documento ingresado en el sistema, debemos tener
+en consideración a cuál de las tres categorías corresponde: Recibido, Enviado o
+Interno.
+Al comenzar la búsqueda de un documento debemos seleccionar en el filtro
+tipo el ítem “documentos recibidos”, “documentos enviados” o “documentos
+internos”, según el interés, posteriormente completar el filtro de búsqueda, en lo
+posible ingresando la mayoría de datos para tener más eficacia.
+Ingresado los datos de búsqueda se desplegará un listado de documentos
+como el que muestra la Fig. 13-1. Posicionándonos sobre el documento lo
+seleccionamos marcándose con color celeste, de esta manera tendremos
+acceso al documento.
+ES IMPORTANTE DESTACAR QUE SOLO SE PUEDE VER DATOS GENERALES DEL
+DOCUMENTO. NO SE TIENE ACCESO AL ADJUNTO, IMAGEN O CONTENIDO
+Fig. 13-1
+64 04-abril-18
+64
+14 Descripción de Términos
+14.1 Estados
+Los documentos pueden tener varios estados en la bandeja de entrada de
+cada usuario, y es un dato dinámico, muy útil para ser empleado como criterio de
+búsqueda.
+Los estados son diferentes para cada tipo de documentos Recibidos,
+Enviados e Internos.
+14.1.1 Estados Documento Recibido.
+El documento recibido es aquel que llega del exterior y es
+registrado en la Oficina de Partes para ser despachado al exterior y están
+definidos los siguientes estados.
+14.1.1.1 Ingresado Sin Destino
+Cuando el Documento está en la bandeja de inicio del emisor sin
+haber indicado el destinatario
+14.1.1.2 Ingresado
+Cuando el Documento está en la bandeja de inicio del emisor listo
+para ser despachado a quien corresponda
+14.1.1.3 Despachado / Aceptado.
+Cuando el Documento se despachó y lo aceptó el destinatario
+14.1.1.4 Despachado / No Aceptado.
+Cuando el Documento se despachó y aún el destinatario no lo recibe
+14.1.1.5 Anulado.
+Cuando se anula un documento. Esto lo puede hacer solo si el emisor
+no lo ha despachado y en el estado Ingresado
+65 04-abril-18
+65
+14.1.1.6 No Recibido.
+Cuando el Documento está en la bandeja de inicio del destinatario
+listo para ser Recibido
+14.1.1.7 Recibido.
+Cuando el Documento fue aceptado por el destinatario.
+14.1.1.8 Reenviado / Aceptado.
+Cuando el Documento se requiere enviarlo a otro usuario. El
+aceptado indica que el remitente ya lo tiene en su poder.
+14.1.1.9 Reenviado / No Aceptado.
+Cuando el Documento se requiere enviarlo a otro usuario. El no
+aceptado indica que todavía el remitente no lo recibe.
+14.1.1.10 Devuelto / Aceptado.
+Cuando el Documento se ha enviado a otro usuario y este no lo
+acepta, entonces lo devuelve a su remitente.
+14.1.1.11 Devuelto / No Aceptado.
+Cuando el Documento se ha enviado a otro usuario y este no lo
+acepta, entonces lo devuelve a su remitente. En este estado todavía
+el receptor no toma ninguna acción al respecto.
+14.1.1.12 Archivado.
+Cuando el Documento se ha registrado en un Archivador
+14.1.2 Estados Documento Enviado
+El documento enviado es aquel generado en un departamento para ser
+despachado al exterior y están definidos los siguientes estados:
+66 04-abril-18
+66
+14.1.2.1 Destino Trámite.
+Cuando el Documento está en la bandeja de inicio del emisor sin
+haber indicado el
+Destinatario.
+14.1.2.2 Ingresado
+Cuando el Documento está en la bandeja de inicio del emisor
+listo para ser despachado a quien corresponda para su trámite
+14.1.2.3 Despachado
+Cuando el Documento ya ha sido enviado para quien
+corresponda para su trámite interno y firma
+14.1.2.4 Despachado Exterior
+Cuando el Documento ya ha sido enviado por la Oficina de
+Partes a su destinatario exterior
+14.1.2.5 No Recibido.
+Cuando el Documento está en la bandeja de inicio del
+destinatario listo para ser Recibido
+14.1.2.6 Recibido en Trámite
+Cuando el documento, está circulando para su aprobación
+final y firma, de acuerdo con el flujo que se requiera
+14.1.2.7 Reenviado / Aceptado.
+Cuando el Documento se requiere enviarlo a otro usuario.
+El aceptado indica que el remitente ya lo tiene en su poder.
+14.1.2.8 Devuelto / Aceptado.
+Cuando el Documento se ha enviado a otro usuario y este
+no lo acepta, entonces lo devuelve a su remitente.
+67 04-abril-18
+67
+14.1.2.9 No Recibido.
+Cuando el Documento está en la bandeja de inicio del
+destinatario listo para ser Recibido
+14.1.2.10 Recibido para Archivo.
+Una vez despachado el documento por la Oficina de
+Partes, el sistema automáticamente le envía el documento al
+Departamento emisor, para que archive la copia.
+14.1.2.11 Anulado.
+Cuando se anula un documento. Esto lo puede hacer solo
+si el emisor no lo ha despachado y en el estado Ingresado
+14.1.2.12 Archivado.
+Cuando el Documento se ha registrado en un Archivador
+14.1.3 Estados Documento Interno
+Para los documentos Internos, los diferentes estados que
+tiene definidos son los siguientes.
+14.1.3.1 Sin Destino Trámite
+Cuando el Documento está en la bandeja de inicio del
+emisor sin haber indicado el destinatario
+14.1.3.2 Ingresado
+Cuando el Documento está en la bandeja de inicio del
+emisor listo para ser despachado a quien corresponda para su
+trámite
+68 04-abril-18
+68
+14.1.3.3 Despachado
+Cuando el Documento ya ha sido enviado para quien
+corresponda para su trámite interno y firma
+14.1.3.4 No Recibido.
+Cuando el Documento está en la bandeja de inicio del
+destinatario listo para ser Recibido
+14.1.3.5 Recibido en Trámite
+Cuando el documento, está circulando para su aprobación
+final y firma, de acuerdo con el flujo que se requiera
+14.1.3.6 Reenviado / Aceptado.
+Cuando el Documento se requiere enviarlo a otro usuario.
+El aceptado indica que el remitente ya lo tiene en su poder
+14.1.3.7 Devuelto / Aceptado.
+Cuando el Documento se ha enviado a otro usuario y este
+no lo acepta, entonces lo devuelve a su
+remitente.
+14.1.3.8 No Recibido.
+Cuando el Documento está en la bandeja de inicio del
+destinatario listo para ser Recibido
+14.1.3.9 Anulado.
+Cuando se anula un documento. Esto lo puede hacer solo
+si el emisor no lo ha despachado y en el estado Ingresado
+14.1.3.10 Archivado.
+Cuando el Documento se ha registrado en un Archivador
