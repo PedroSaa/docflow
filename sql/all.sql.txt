@@ -1,0 +1,3795 @@
+/****** Object: Table [dbo].[AuditorSistema]   Script Date: 30-08-2025 18:36:21 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[AuditorSistema] (
+[AuditorSistemaId] uniqueidentifier ROWGUIDCOL NOT NULL,
+[AuditorSistemaUsuario] nvarchar(25) NOT NULL,
+[AuditorSistemaNivel] nvarchar(20) NOT NULL,
+[AuditorSistemaOrganismos] nvarchar(20) NOT NULL,
+[AuditorSistemaEvento] nvarchar(MAX) NOT NULL,
+[AuditorSistemaFechaEvento] datetime NOT NULL,
+[AuditorSistemaFechaGlobalEvent] nvarchar(40) NOT NULL,
+[AuditorSistemaServidor] nvarchar(200) NULL,
+[AuditorSistemaIpCliente] nvarchar(40) NULL,
+[AuditorSistemaNombreObjeto] nvarchar(100) NULL,
+[AuditorSistemaSesionIdUsuario] nvarchar(40) NULL,
+[AuditorSistemaInformacionAdici] nvarchar(4000) NULL,
+[AuditorSistemaDuracionMilisegu] smallint NULL,
+[AuditorSistemaNombrePCCliente] nvarchar(40) NULL,
+[AuditorSistemaModulo] nvarchar(40) NULL,
+[AuditorSistemaClaseObjeto] nvarchar(40) NULL)
+ON [PRIMARY]
+TEXTIMAGE_ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[AuditorSistema] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[bandeja]   Script Date: 30-08-2025 18:36:22 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[bandeja] (
+[idbandeja] uniqueidentifier NOT NULL,
+[ORGDEPCOD] varchar(20) NOT NULL,
+[NivCod] varchar(20) NOT NULL,
+[USUCOD] varchar(25) NOT NULL,
+[BANDFTipo] varchar(1) NULL,
+[BANDFAno] smallint NULL,
+[BANDFMes] smallint NULL,
+[BANDFCor] int NULL,
+[BANDFClasif] smallint NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[bandeja] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[Archivos]   Script Date: 30-08-2025 18:36:22 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[Archivos] (
+[ArcId] decimal(10, 0) IDENTITY(1, 1) NOT NULL,
+[ARCHIVO] varbinary(MAX) NOT NULL,
+[ARCEXT] nvarchar(10) NOT NULL)
+ON [PRIMARY]
+TEXTIMAGE_ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[Archivos] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[BandejaEntradaArchivo]   Script Date: 30-08-2025 18:36:28 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[BandejaEntradaArchivo] (
+[BandejaEntradaArchivoId] uniqueidentifier ROWGUIDCOL NOT NULL,
+[BandejaEntradaId] int NOT NULL,
+[BandejaEntradaArchivoNom] nvarchar(300) NOT NULL,
+[BandejaEntradaArchivoArchivo] varbinary(MAX) NOT NULL,
+[BandejaEntradaArchivoExt] nchar(20) NOT NULL,
+[BandejaEntradaArchivoNombreInt] nvarchar(500) NOT NULL)
+ON [PRIMARY]
+TEXTIMAGE_ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[BandejaEntradaArchivo] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[BandejaEntradaCategoria]   Script Date: 30-08-2025 18:36:29 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[BandejaEntradaCategoria] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[BandejaEntradaCategoriaId] smallint NOT NULL,
+[CATCOD] int NULL,
+[BandejaEntradaCategoriaFormato] nvarchar(40) NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[BandejaEntradaCategoria] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[BandejaEntradaFormato]   Script Date: 30-08-2025 18:36:29 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[BandejaEntradaFormato] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[BandejaEntradaFormatoIdCod] smallint NOT NULL,
+[tipo_cod] smallint NOT NULL,
+[BandejaEntradaFormatoDocOrigen] nvarchar(40) NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[BandejaEntradaFormato] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[BandejaEntradaVirtual]   Script Date: 30-08-2025 18:36:29 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[BandejaEntradaVirtual] (
+[BandejaEntradaId] int IDENTITY(1, 1) NOT NULL,
+[REMCod] nvarchar(20) NOT NULL,
+[BandejaEntradaMateria] nvarchar(500) NOT NULL,
+[BandejaEntradaFormatoDoc] nvarchar(40) NOT NULL,
+[BandejaEntradaFechaRegistro] datetime NOT NULL,
+[BandejaEntradaFechaRecepcion] datetime NOT NULL,
+[BandejaEntradaSolicitaRespuest] bit NOT NULL,
+[BandejaEntradaCartaCertificada] bit NOT NULL,
+[BandejaEntradaNumeroDoc] nvarchar(40) NOT NULL,
+[BandejaEntradaAsicadoADocFlow] nvarchar(200) NOT NULL,
+[BandejaEntradaLeido] bit NOT NULL,
+[BandejaEntradaObservacion] nvarchar(3000) NOT NULL,
+[BandejaEntradaORGDEPCOD] nvarchar(20) NULL,
+[BandejaEntradaDFTipo] nvarchar(1) NULL,
+[BandejaEntradaDFAno] smallint NULL,
+[BandejaEntradaDFMes] smallint NULL,
+[BandejaEntradaDFCOR] int NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[BandejaEntradaVirtual] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[DFADJUNT]   Script Date: 30-08-2025 18:36:35 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFADJUNT] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[DFTipo] nvarchar(1) NOT NULL,
+[DFAno] smallint NOT NULL,
+[DFMes] smallint NOT NULL,
+[DFCor] int NOT NULL,
+[DFOCUR] smallint NOT NULL,
+[DNUMADJ] int NOT NULL,
+[EXT] nvarchar(20) NULL,
+[NOMBREARCH] nvarchar(250) NULL,
+[NIVCODORIADJ] nvarchar(20) NOT NULL,
+[FIRMADIG] smallint NULL,
+[PORFIRMAR] smallint NULL,
+[USUARIOGENE] nvarchar(25) NOT NULL,
+[USUARIOFIRMADOR] nvarchar(25) NULL,
+[NIVCODFIRMADOR] nvarchar(40) NULL,
+[PLANTILLA] smallint NULL,
+[ArcId] decimal(10, 0) NULL,
+[FileID] int NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFADJUNT] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[CasillaFacturas]   Script Date: 30-08-2025 18:36:36 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[CasillaFacturas] (
+[CasillaFacturasGUID_FACT] uniqueidentifier ROWGUIDCOL NOT NULL,
+[CasillaFacturasFolio] nvarchar(50) NOT NULL,
+[CasillaFacturasRznSoc] nvarchar(300) NULL,
+[CasillaFacturasMntTotal] nvarchar(50) NULL,
+[CasillaFacturasRUTEmisor] nvarchar(50) NOT NULL,
+[CasillaFacturasRUTRecep] nvarchar(50) NULL,
+[CasillaFacturasRznSocRecep] nvarchar(300) NULL,
+[CasillaFacturasTipoDTE] smallint NOT NULL,
+[CasillaFacturasFchEmis] nvarchar(50) NULL,
+[CasillaFacturasGiroEmis] nvarchar(200) NULL,
+[CasillaFacturasDirOrigen] nvarchar(200) NULL,
+[CasillaFacturasCiudadOrigen] nvarchar(200) NULL,
+[CasillaFacturasORGDEPCOD] nvarchar(20) NULL,
+[CasillaFacturasIVA] nvarchar(50) NULL,
+[CasillaFacturasMntNETO] nvarchar(50) NULL,
+[CasillaFacturasGlosa] nvarchar(500) NULL,
+[CasillaFacturasFACT_ESTADO] smallint NULL,
+[CasillaFacturasARCHIVO] varbinary(MAX) NULL,
+[CasillaFacturastrackId] decimal(12, 0) NULL,
+[CasillaFacturasFchRecepcion] datetime NULL,
+[CasillaFacturasLeido] bit NULL)
+ON [PRIMARY]
+TEXTIMAGE_ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[CasillaFacturas] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[CasillaFacturas2]   Script Date: 30-08-2025 18:36:37 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[CasillaFacturas2] (
+[TempGUID_FACT] uniqueidentifier ROWGUIDCOL NOT NULL,
+[TempFolio] nvarchar(50) NOT NULL,
+[TempRznSoc] nvarchar(300) NULL,
+[TempMntTotal] nvarchar(50) NULL,
+[TempRUTEmisor] nvarchar(50) NOT NULL,
+[TempRUTRecep] nvarchar(50) NULL,
+[TempRznSocRecep] nvarchar(300) NULL,
+[TempTipoDTE] smallint NOT NULL,
+[TempFchEmis] nvarchar(50) NULL,
+[TempGiroEmis] nvarchar(200) NULL,
+[TempDirOrigen] nvarchar(200) NULL,
+[TempCiudadOrigen] nvarchar(200) NULL,
+[TempORGDEPCOD] nvarchar(20) NULL,
+[TempFACT_ESTADO] smallint NULL,
+[TempIVA] nvarchar(50) NULL,
+[TempMntNETO] nvarchar(50) NULL,
+[TempGlosa] nvarchar(500) NULL,
+[TempARCHIVO] nvarchar(500) NULL,
+[TempFchRecepcion] datetime NULL,
+[TemptrackId] int NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[CasillaFacturas2] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[DFADJCONTENIDO]   Script Date: 30-08-2025 18:36:38 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFADJCONTENIDO] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[DFTipo] nvarchar(1) NOT NULL,
+[DFAno] smallint NOT NULL,
+[DFMes] smallint NOT NULL,
+[DFCor] int NOT NULL,
+[ID_CONTENIDO] smallint NOT NULL,
+[ContenidoPdf] varbinary(MAX) NULL,
+[DFADJCONFIRMA] nvarchar(128) NOT NULL)
+ON [PRIMARY]
+TEXTIMAGE_ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFADJCONTENIDO] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[DFADJUNT_old]   Script Date: 30-08-2025 18:36:41 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFADJUNT_old] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[DFTipo] nvarchar(1) NOT NULL,
+[DFAno] smallint NOT NULL,
+[DFMes] smallint NOT NULL,
+[DFCor] int NOT NULL,
+[DFOCUR] smallint NOT NULL,
+[DNUMADJ] int NOT NULL,
+[EXT] nvarchar(20) NULL,
+[NOMBREARCH] nvarchar(250) NULL,
+[NIVCODORIADJ] nvarchar(20) NOT NULL,
+[FIRMADIG] smallint NULL,
+[PORFIRMAR] smallint NULL,
+[USUARIOGENE] nvarchar(25) NOT NULL,
+[USUARIOFIRMADOR] nvarchar(25) NOT NULL,
+[NIVCODFIRMADOR] nvarchar(40) NOT NULL,
+[PLANTILLA] smallint NOT NULL,
+[ArcId] decimal(10, 0) NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFADJUNT_old] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[DFAVIDETAL]   Script Date: 30-08-2025 18:36:44 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFAVIDETAL] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[NivCod] nvarchar(20) NOT NULL,
+[USUCOD] nvarchar(25) NOT NULL,
+[ANOAVISO] smallint NOT NULL,
+[MESAVISO] smallint NOT NULL,
+[NAVISO] int NOT NULL,
+[NAVIDETALLE] int NOT NULL,
+[AVIDETFECHA] datetime NULL,
+[AVIDETESTADO] smallint NOT NULL,
+[AVIDETHORA] nvarchar(8) NULL,
+[AVIDETACTIVAR] smallint NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFAVIDETAL] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[DFAVISO]   Script Date: 30-08-2025 18:36:44 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFAVISO] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[ANOAVISO] smallint NOT NULL,
+[MESAVISO] smallint NOT NULL,
+[NAVISO] int NOT NULL,
+[AVIPRIORIDAD] smallint NOT NULL,
+[AVIASUNTO] nvarchar(250) NULL,
+[NIVCODORI] nvarchar(20) NULL,
+[USUCODORI] nvarchar(25) NULL,
+[AVITEXTO] nvarchar(MAX) NULL,
+[AVIFECHA] datetime NOT NULL,
+[AVIHORA] nvarchar(8) NOT NULL)
+ON [PRIMARY]
+TEXTIMAGE_ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFAVISO] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[DFAYUDAS]   Script Date: 30-08-2025 18:36:44 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFAYUDAS] (
+[AyuCod] nvarchar(30) NOT NULL,
+[AYUDESC] nvarchar(MAX) NULL)
+ON [PRIMARY]
+TEXTIMAGE_ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFAYUDAS] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[DFASIGNAR]   Script Date: 30-08-2025 18:36:45 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFASIGNAR] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[DFTipo] nvarchar(1) NOT NULL,
+[DFAno] smallint NOT NULL,
+[DFMes] smallint NOT NULL,
+[DFCor] int NOT NULL,
+[DFOCUR] smallint NOT NULL,
+[DFASIGNARUSURESPONSABLE] nvarchar(20) NOT NULL,
+[DFASIGNARUSUAUTO] nvarchar(20) NOT NULL,
+[DFASIGNARNIVAUTO] nvarchar(20) NOT NULL,
+[DFASIGNARNIVRESPONSABLE] nvarchar(20) NOT NULL,
+[DFASIGNARFECHAREGISTRO] datetime NOT NULL,
+[DFASIGNARACCION] smallint NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFASIGNAR] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[DFBusquedaGrillaDocumentos]   Script Date: 30-08-2025 18:36:46 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFBusquedaGrillaDocumentos] (
+[GuidBusqueda] uniqueidentifier NOT NULL,
+[ORGDEPCOD] varchar(20) NOT NULL,
+[NIVCOD] varchar(20) NOT NULL,
+[WhereConsulta] varchar(MAX) NULL,
+[Destacados] int NULL,
+[inicio] int NULL,
+[fin] int NULL,
+[pagina] int NULL)
+ON [PRIMARY]
+TEXTIMAGE_ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFBusquedaGrillaDocumentos] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[DFCARPET]   Script Date: 30-08-2025 18:36:46 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFCARPET] (
+[DFCORGDEP] nvarchar(20) NOT NULL,
+[DFCNIVCOD] nvarchar(20) NOT NULL,
+[DFCID] nvarchar(12) NOT NULL,
+[DFFCREA] datetime NULL,
+[DFCDOF] nvarchar(25) NULL,
+[DFCDEST] nvarchar(25) NULL,
+[DFCDDREC] nvarchar(25) NULL,
+[DFCDESC] nvarchar(30) NOT NULL,
+[DFCDIFIC] nvarchar(25) NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFCARPET] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[DFCATEGORIA_OLD]   Script Date: 30-08-2025 18:36:48 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFCATEGORIA_OLD] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[DFTipo] nvarchar(1) NOT NULL,
+[DFAno] smallint NOT NULL,
+[DFMes] smallint NOT NULL,
+[DFCor] int NOT NULL,
+[DFOCUR] smallint NOT NULL,
+[IDCATEGORIA] smallint NOT NULL,
+[IDSUBCATEGORIA] smallint NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFCATEGORIA_OLD] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[DFCATEGORIA]   Script Date: 30-08-2025 18:36:49 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFCATEGORIA] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[DFTipo] nvarchar(1) NOT NULL,
+[DFAno] smallint NOT NULL,
+[DFMes] smallint NOT NULL,
+[DFCor] int NOT NULL,
+[DFOCUR] smallint NOT NULL,
+[IDDFCATE] int NOT NULL,
+[IDSUBCATEGORIA] smallint NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFCATEGORIA] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[DFCONAUTORIZADO]   Script Date: 30-08-2025 18:36:49 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFCONAUTORIZADO] (
+[GUID_AUTORIZADO] uniqueidentifier NOT NULL,
+[GUID_DOC] uniqueidentifier NOT NULL,
+[USUCOD] nvarchar(20) NOT NULL,
+[DFCONVERSION] smallint NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFCONAUTORIZADO] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[DFCONTENIDO]   Script Date: 30-08-2025 18:36:49 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFCONTENIDO] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[DFTipo] nvarchar(1) NOT NULL,
+[DFAno] smallint NOT NULL,
+[DFMes] smallint NOT NULL,
+[DFCor] int NOT NULL,
+[DFCONVERSION] smallint NOT NULL,
+[DFCONARCHIVO] varbinary(MAX) NOT NULL,
+[DFCONEXT] nvarchar(10) NULL,
+[DFCONAUTOR] nvarchar(40) NOT NULL,
+[DFCONNIVELAUTOR] nvarchar(40) NOT NULL,
+[DFCONFECHA] datetime NOT NULL,
+[DFCONHORA] nvarchar(8) NOT NULL,
+[DFCONAUTO] smallint NULL,
+[DFUSUAUTORIZACI] nvarchar(40) NULL,
+[DFUSUFIRMADOR] nvarchar(40) NULL,
+[DFCONESTADO] nvarchar(1) NULL)
+ON [PRIMARY]
+TEXTIMAGE_ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFCONTENIDO] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[DFCODBAR]   Script Date: 30-08-2025 18:36:49 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFCODBAR] (
+[ID_COD] smallint IDENTITY(1, 1) NOT NULL,
+[CodBarra] char(500) NOT NULL,
+[ORGDEPCOD] char(20) NOT NULL,
+[DFTIPO] char(1) NOT NULL,
+[DFANO] smallint NOT NULL,
+[DFMES] smallint NOT NULL,
+[DFCOR] int NOT NULL,
+[SINCODBAR] smallint NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFCODBAR] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[DFDOCASO]   Script Date: 30-08-2025 18:36:51 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFDOCASO] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[DFTipo] nvarchar(1) NOT NULL,
+[DFAno] smallint NOT NULL,
+[DFMes] smallint NOT NULL,
+[DFCor] int NOT NULL,
+[DFOCUR] smallint NOT NULL,
+[DFDOCREF] smallint NOT NULL,
+[DFDOCTIPODOC] smallint NULL,
+[DFDocDocNro] nvarchar(15) NULL,
+[DFDOCMES] smallint NOT NULL,
+[DFDOCCOR] int NOT NULL,
+[DFDOCANO] smallint NOT NULL,
+[DFORGDEP] nvarchar(20) NOT NULL,
+[DFDOCNRO1] int NULL,
+[DFDOCOCUR] smallint NOT NULL,
+[DFDOCDESTIPO] nvarchar(15) NULL,
+[DFDOCCLASF] nvarchar(2) NULL,
+[DFDOCTIPO] nvarchar(1) NOT NULL,
+[DFDOCNRO3] nvarchar(7) NULL,
+[DFDOCMNRO] nvarchar(6) NULL,
+[DFDOCNRO2] nvarchar(7) NULL,
+[DFDOCREPSIGLA] nvarchar(20) NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFDOCASO] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[DFDOCEXT]   Script Date: 30-08-2025 18:36:51 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFDOCEXT] (
+[ORGDEPCODDES] nvarchar(20) NOT NULL,
+[DFDOCLINEA] int NOT NULL,
+[DFDOCNROORIGEN] nvarchar(40) NOT NULL,
+[DFCor] int NOT NULL,
+[DFTipo] nvarchar(1) NOT NULL,
+[DFMes] smallint NOT NULL,
+[NIVCODORIGEN] nvarchar(20) NOT NULL,
+[USUCODORIGEN] nvarchar(20) NOT NULL,
+[FECHAING] datetime NOT NULL,
+[ORGDEPCODORIGEN] nvarchar(20) NOT NULL,
+[DFAno] smallint NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFDOCEXT] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[DFDOCDIGITALANEXOS]   Script Date: 30-08-2025 18:36:52 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFDOCDIGITALANEXOS] (
+[DFDOCDIGITALANEXOSID] int NOT NULL,
+[DFDOCDIGITALANEXOSNOMBRE] nvarchar(1000) NOT NULL,
+[DFDOCDIGITALANEXOSURL] nvarchar(1000) NULL,
+[DFDOCDIGITALANEXOSTIPO] nvarchar(40) NULL,
+[DFDOCDIGITALANEXOSARCHIVO] nvarchar(MAX) NULL,
+[DOCDIGITALID] int NOT NULL)
+ON [PRIMARY]
+TEXTIMAGE_ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFDOCDIGITALANEXOS] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[DFDOCGUID]   Script Date: 30-08-2025 18:36:52 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFDOCGUID] (
+[GUID_DOC] uniqueidentifier NOT NULL,
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[DFTipo] nvarchar(1) NOT NULL,
+[DFAno] smallint NOT NULL,
+[DFMes] smallint NOT NULL,
+[DFCor] int NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFDOCGUID] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[DFDOCSERIE]   Script Date: 30-08-2025 18:36:52 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFDOCSERIE] (
+[DFDOCID] decimal(12, 0) IDENTITY(1, 1) NOT FOR REPLICATION NOT NULL,
+[ORGDEPCOD] varchar(20) NOT NULL,
+[DFTipo] varchar(1) NOT NULL,
+[DFAno] smallint NOT NULL,
+[DFMes] smallint NOT NULL,
+[DFCor] int NOT NULL,
+[DFOCUR] smallint NOT NULL,
+[DFDOCSerialNumeric] decimal(12, 0) NOT NULL,
+[DFDOCSerialText] char(16) NOT NULL,
+[DFDOCSERIALFECHA] datetime NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFDOCSERIE] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[DFDOCUM]   Script Date: 30-08-2025 18:36:56 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFDOCUM] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[DFTipo] nvarchar(1) NOT NULL,
+[DFAno] smallint NOT NULL,
+[DFMes] smallint NOT NULL,
+[DFCor] int NOT NULL,
+[DFOCUR] smallint NOT NULL,
+[DFFCHORIG] datetime NULL,
+[DFFIRDIG] nvarchar(256) NULL,
+[DFFchRecep] datetime NULL,
+[DFFCHEXPIR] datetime NULL,
+[DFORINiv] nvarchar(20) NULL,
+[DFObjetivo] nvarchar(2000) NULL,
+[DFIULTLIN] smallint NULL,
+[DFULTCOPIA] smallint NULL,
+[DFNRO3] nvarchar(7) NULL,
+[CATCOD] int NULL,
+[DFCONDICION] nvarchar(1) NULL,
+[DFORICod] nvarchar(20) NULL,
+[DFFARO] nvarchar(1) NULL,
+[DFTEMA] nvarchar(MAX) NULL,
+[DFDOCUMFECENVIO] datetime NULL,
+[DFHRSRECEP] nvarchar(10) NULL,
+[DFFCHRESP] datetime NULL,
+[DFETAPA] nvarchar(1) NULL,
+[DFDocNro] nvarchar(40) NULL,
+[DFFchIng] datetime NULL,
+[DFFchEnvio] datetime NULL,
+[DFULTENV] smallint NULL,
+[DFPRIOR] nvarchar(1) NULL,
+[DFCENVIO] nvarchar(150) NULL,
+[DFHOJA] smallint NULL,
+[DFNRO2] nvarchar(10) NULL,
+[tipo_cod] smallint NOT NULL,
+[DFDTIPO] nvarchar(12) NULL,
+[DFENVIO] nvarchar(150) NULL,
+[DFMNRO] nvarchar(6) NULL,
+[DFEJEMPLAR] smallint NULL,
+[DFCOPIA] nvarchar(150) NULL,
+[DFClasif] smallint NULL,
+[DFULTLIN] smallint NULL,
+[DFULTREF] smallint NULL,
+[DFNRO1] int NULL,
+[USUCODRESPONSAB] nvarchar(25) NULL,
+[NIVELRESPONSABL] nvarchar(20) NULL,
+[DFRespDoc] smallint NULL,
+[DFEstadoDoc] smallint NULL,
+[DFNMETAg] nvarchar(1) NULL,
+[tReferencias] int NULL,
+[tDoc] int NULL,
+[tAdjuntos] int NULL,
+[tImagenes] int NULL,
+[tTareas] int NULL,
+[tObservaciones] int NULL)
+ON [PRIMARY]
+TEXTIMAGE_ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFDOCUM] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[DFDOCUMDOCDIGITAL]   Script Date: 30-08-2025 18:36:57 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFDOCUMDOCDIGITAL] (
+[DOCDIGITALID] int NOT NULL,
+[DOCDIGITALDFFCHORIG] datetime NULL,
+[DOCDIGITALDFObjetivo] nvarchar(2000) NULL,
+[DOCDIGITALDFORICod] nvarchar(40) NULL,
+[DOCDIGITALDFDocNro] nvarchar(40) NULL,
+[DOCDIGITALDFPRIOR] nvarchar(1) NULL,
+[DOCDIGITALtipo_cod] int NULL,
+[DOCDIGITALARCHIVO] nvarchar(MAX) NULL,
+[DOCDIGITALJSON] nvarchar(MAX) NULL,
+[DOCDIGITALESTADO] int NULL,
+[DFDOCUMDOCDIGITALORGDEPCOD] nvarchar(20) NULL,
+[DFDOCUMDOCDIGITALDFTIPO] nvarchar(1) NULL,
+[DFDOCUMDOCDIGITALDFANO] smallint NULL,
+[DFDOCUMDOCDIGITALDFMES] smallint NULL,
+[DFDOCUMDOCDIGITALDFCOR] int NULL,
+[DOCDIGITALdfclasif] int NULL)
+ON [PRIMARY]
+TEXTIMAGE_ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFDOCUMDOCDIGITAL] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[DFEDIFIC]   Script Date: 30-08-2025 18:36:59 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFEDIFIC] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[DFEDIFCOD] nvarchar(25) NOT NULL,
+[DFEDIFOFIC] nvarchar(25) NOT NULL,
+[DFEDIFEST] nvarchar(25) NOT NULL,
+[DFEDIFDIRE] nvarchar(25) NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFEDIFIC] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[DFEDITORMENSAJES]   Script Date: 30-08-2025 18:37:00 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFEDITORMENSAJES] (
+[GUID_MENSAJES] uniqueidentifier NOT NULL,
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[DFTipo] nvarchar(1) NOT NULL,
+[DFAno] smallint NOT NULL,
+[DFMes] smallint NOT NULL,
+[DFCor] int NOT NULL,
+[TADEORIGEN] nvarchar(100) NULL,
+[DEL] nvarchar(100) NULL,
+[PREFIJO] nvarchar(100) NULL,
+[GRUPOFECHAHORA] nvarchar(100) NULL,
+[CLASIF] nvarchar(100) NULL,
+[TIPOMENSAJE] nvarchar(100) NULL,
+[repartAL] nvarchar(MAX) NULL,
+[repartDEL] nvarchar(MAX) NULL,
+[listAL] nvarchar(MAX) NULL,
+[listDEL] nvarchar(MAX) NULL,
+[exceptuados] nvarchar(MAX) NULL,
+[titulo] nvarchar(MAX) NULL,
+[texto] nvarchar(MAX) NULL)
+ON [PRIMARY]
+TEXTIMAGE_ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFEDITORMENSAJES] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[DFEINGRE]   Script Date: 30-08-2025 18:37:03 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFEINGRE] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[DFTipo] nvarchar(1) NOT NULL,
+[DFAno] smallint NOT NULL,
+[DFMes] smallint NOT NULL,
+[DFCor] int NOT NULL,
+[DFOCUR] smallint NOT NULL,
+[DFDLIN] smallint NOT NULL,
+[REMCod] nvarchar(20) NULL,
+[DFVALOR] smallint NULL,
+[DFDEJEMPLA] smallint NULL,
+[DFDFARO] nvarchar(1) NULL,
+[DFDHOJA] smallint NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFEINGRE] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[DFENVIO_EMAIL]   Script Date: 30-08-2025 18:37:03 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFENVIO_EMAIL] (
+[MID] int IDENTITY(1, 1) NOT NULL,
+[MCARPETA] char(250) NULL,
+[MCCOPIA] char(250) NULL,
+[MMAL] varchar(MAX) NULL,
+[MNOMBRE] char(250) NULL,
+[MHORA] char(8) NULL,
+[MCORREO] char(250) NULL,
+[MADJ] smallint NULL,
+[MCTEXTO] varchar(MAX) NULL,
+[MFEMISION] char(50) NULL,
+[MOBJETIVO] varchar(MAX) NULL)
+ON [PRIMARY]
+TEXTIMAGE_ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFENVIO_EMAIL] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[DFESTADODOC]   Script Date: 30-08-2025 18:37:04 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFESTADODOC] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[DFTIPO] nvarchar(8) NOT NULL,
+[COD_DFESTADO] int NOT NULL,
+[DESC_DFESTADO] nvarchar(60) NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFESTADODOC] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[DFFormaEnvios]   Script Date: 30-08-2025 18:37:08 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFFormaEnvios] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[DFTipo] nvarchar(1) NOT NULL,
+[DFAno] smallint NOT NULL,
+[DFMes] smallint NOT NULL,
+[DFCor] int NOT NULL,
+[IdFormaEnvio] smallint NOT NULL,
+[FormaEnvioRut] nvarchar(12) NULL,
+[FormaEnvioNombre] nvarchar(100) NULL,
+[FormaEnvioFecha] datetime NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFFormaEnvios] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[DFHISCAR]   Script Date: 30-08-2025 18:37:09 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFHISCAR] (
+[DFCORGDEP] nvarchar(20) NOT NULL,
+[DFCNIVCOD] nvarchar(20) NOT NULL,
+[DFCID] nvarchar(12) NOT NULL,
+[DFCHIST] smallint NOT NULL,
+[DFCHHRS] nvarchar(8) NULL,
+[DFCHORG] smallint NULL,
+[DFCHDVRUT] nvarchar(1) NULL,
+[DFCHDCLAS] nvarchar(15) NULL,
+[DFCHUSU] nvarchar(8) NULL,
+[DFCHNIVCOD] nvarchar(20) NULL,
+[DFCHRUT] decimal(10, 0) NULL,
+[DFCHCARGO] nvarchar(50) NULL,
+[DFCHDORG] nvarchar(60) NULL,
+[DFCHCLASIF] smallint NULL,
+[DFCHCORG] nvarchar(15) NULL,
+[DFCHNOMBRES] nvarchar(30) NULL,
+[DFCHNIVDESC] nvarchar(60) NULL,
+[DFCHAPMATER] nvarchar(25) NULL,
+[DFCHDES] nvarchar(150) NOT NULL,
+[DFCHFCH] datetime NULL,
+[DFCHTIPO] nvarchar(2) NULL,
+[DFCHAPPATER] nvarchar(25) NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFHISCAR] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[DFHISDOC]   Script Date: 30-08-2025 18:37:09 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFHISDOC] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[DFTipo] nvarchar(1) NOT NULL,
+[DFAno] smallint NOT NULL,
+[DFMes] smallint NOT NULL,
+[DFCor] int NOT NULL,
+[DFHNRO] int NOT NULL,
+[DFHFCH] datetime NULL,
+[DFHNIVCOD] nvarchar(20) NOT NULL,
+[DFHDESC] nvarchar(250) NULL,
+[DFHHRS] nvarchar(8) NULL,
+[DFHTIEMPO] smallint NULL,
+[DFHNIVDESC] nvarchar(60) NULL,
+[DFHNIVMOV] nvarchar(20) NULL,
+[DFHDORG] nvarchar(20) NOT NULL,
+[DFHTIPOMOV] smallint NULL,
+[DFHUSU] nvarchar(25) NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFHISDOC] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[DFHISINT]   Script Date: 30-08-2025 18:37:12 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFHISINT] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[DFTipo] nvarchar(1) NOT NULL,
+[DFAno] smallint NOT NULL,
+[DFMes] smallint NOT NULL,
+[DFCor] int NOT NULL,
+[LINEA] smallint NOT NULL,
+[FECHA] datetime NULL,
+[USUNIVCOD] nvarchar(20) NULL,
+[HORA] nvarchar(8) NULL,
+[USUCOD] nvarchar(25) NOT NULL,
+[GLOSA] nvarchar(20) NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFHISINT] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[DFHISTORIAACCION]   Script Date: 30-08-2025 18:37:12 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFHISTORIAACCION] (
+[orgdepcod_histo] nvarchar(40) NOT NULL,
+[dftipo_histo] nvarchar(1) NOT NULL,
+[dfano_histo] smallint NOT NULL,
+[dfmes_histo] smallint NOT NULL,
+[dfcor_histo] int NOT NULL,
+[num_histo] int NOT NULL,
+[accion_histo] nvarchar(1) NOT NULL,
+[accion_num_histo] int NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFHISTORIAACCION] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[DFHISMSG]   Script Date: 30-08-2025 18:37:13 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFHISMSG] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[NivCod] nvarchar(20) NOT NULL,
+[DFTipo] nvarchar(1) NOT NULL,
+[DFAno] smallint NOT NULL,
+[DFMes] smallint NOT NULL,
+[DFCor] int NOT NULL,
+[DFOCUR] smallint NOT NULL,
+[DFLINEA] smallint NOT NULL,
+[DFHVAR7] nvarchar(20) NULL,
+[DFHORA] nvarchar(8) NULL,
+[DFFORMA] nvarchar(20) NULL,
+[DFHVAR4] nvarchar(20) NULL,
+[DFHVAR6] nvarchar(20) NULL,
+[USUCOD] nvarchar(25) NULL,
+[DFHVAR1] nvarchar(20) NULL,
+[DFFECHA] datetime NULL,
+[DFHVAR8] nvarchar(20) NULL,
+[DFHVAR5] nvarchar(20) NULL,
+[DFHVAR3] nvarchar(20) NULL,
+[DFHVAR2] nvarchar(20) NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFHISMSG] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[DFIENVIO]   Script Date: 30-08-2025 18:37:15 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFIENVIO] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[DFTipo] nvarchar(1) NOT NULL,
+[DFAno] smallint NOT NULL,
+[DFMes] smallint NOT NULL,
+[DFCor] int NOT NULL,
+[DFOCUR] smallint NOT NULL,
+[DFILIN] smallint NOT NULL,
+[DFICODNIV] nvarchar(20) NULL,
+[DFIHOJA] smallint NULL,
+[DFIEJEMP] smallint NULL,
+[DFIDESNIV] nvarchar(60) NULL,
+[DFIESTADO] smallint NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFIENVIO] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[DFIMAGEN]   Script Date: 30-08-2025 18:37:16 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFIMAGEN] (
+[ORGDEPCOD] varchar(20) NOT NULL,
+[DFTipo] varchar(1) NOT NULL,
+[DFAno] smallint NOT NULL,
+[DFMes] smallint NOT NULL,
+[DFCor] int NOT NULL,
+[DFOCUR] smallint NOT NULL,
+[DFIMGID] int NOT NULL,
+[DFIMGIMAGEN] varbinary(MAX) NULL,
+[DFIMGFECHAINGRESO] datetime NOT NULL,
+[dfimghora] char(12) NOT NULL,
+[FileID] int NOT NULL,
+[DFIMGPAGINA] smallint NOT NULL)
+ON [PRIMARY]
+TEXTIMAGE_ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFIMAGEN] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[DFIMAGEN_old]   Script Date: 30-08-2025 18:37:19 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFIMAGEN_old] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[DFTipo] nvarchar(1) NOT NULL,
+[DFAno] smallint NOT NULL,
+[DFMes] smallint NOT NULL,
+[DFCor] int NOT NULL,
+[DFOCUR] smallint NOT NULL,
+[numero_paginas] int NOT NULL,
+[IMAGEN] varbinary(MAX) NULL,
+[FECHA_INGRESO] datetime NULL)
+ON [PRIMARY]
+TEXTIMAGE_ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFIMAGEN_old] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[DFMAIL]   Script Date: 30-08-2025 18:37:19 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFMAIL] (
+[ID] int IDENTITY(1, 1) NOT NULL,
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[MID] nvarchar(48) NOT NULL,
+[MCARPETA] nvarchar(1000) NULL,
+[MCCOPIA] nvarchar(1000) NULL,
+[MMAL] nvarchar(1000) NULL,
+[MNOMBRE] nvarchar(1000) NULL,
+[MHORA] nvarchar(8) NULL,
+[MCORREO] nvarchar(1000) NULL,
+[MADJ] varbinary(MAX) NULL,
+[MCTEXTO] nvarchar(MAX) NULL,
+[MFEMISION] nvarchar(50) NULL,
+[MOBJETIVO] nvarchar(1000) NULL,
+[enviado] smallint NOT NULL)
+ON [PRIMARY]
+TEXTIMAGE_ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFMAIL] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[DFMailDoc]   Script Date: 30-08-2025 18:37:21 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFMailDoc] (
+[EmailIdAuto] int IDENTITY(1, 1) NOT NULL,
+[EMailId] nvarchar(500) NULL,
+[EmailSubject] nvarchar(200) NULL,
+[EmailTo] nvarchar(100) NULL,
+[EmailDate] nvarchar(100) NULL,
+[EmailBody] nvarchar(MAX) NULL,
+[EmailFrom] nvarchar(100) NULL,
+[EmailDateSent] datetime NULL,
+[EmailEstado] bit NULL,
+[EmailUsucod] nvarchar(25) NOT NULL,
+[DFMailDocDOCFLOW] nvarchar(500) NULL,
+[EMailDescartado] smallint NULL)
+ON [PRIMARY]
+TEXTIMAGE_ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFMailDoc] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[DFMAILold]   Script Date: 30-08-2025 18:37:23 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFMAILold] (
+[ID] int IDENTITY(1, 1) NOT NULL,
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[MID] nvarchar(48) NOT NULL,
+[MCARPETA] nvarchar(250) NULL,
+[MCCOPIA] nvarchar(250) NULL,
+[MMAL] nvarchar(250) NULL,
+[MNOMBRE] nvarchar(250) NULL,
+[MHORA] nvarchar(8) NULL,
+[MCORREO] nvarchar(250) NULL,
+[MADJ] smallint NULL,
+[MCTEXTO] nvarchar(MAX) NULL,
+[MFEMISION] nvarchar(50) NULL,
+[MOBJETIVO] nvarchar(250) NULL,
+[enviado] smallint NULL)
+ON [PRIMARY]
+TEXTIMAGE_ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFMAILold] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[DFMOV]   Script Date: 30-08-2025 18:37:23 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFMOV] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[NivCod] nvarchar(20) NOT NULL,
+[DFTipo] nvarchar(1) NOT NULL,
+[DFAno] smallint NOT NULL,
+[DFMes] smallint NOT NULL,
+[DFCor] int NOT NULL,
+[DFOCUR] smallint NOT NULL,
+[DFEDESP] smallint NULL,
+[DFETRAM] smallint NULL,
+[DFEDTRAM] nvarchar(20) NULL,
+[DFEDDTRAM] nvarchar(60) NULL,
+[DFEORIG] smallint NULL,
+[DFNRODOC] smallint NULL,
+[DFPOCUR] smallint NULL,
+[DFCNIVCOD] nvarchar(20) NULL,
+[DFEDDCOPIA] nvarchar(60) NULL,
+[DFCID] nvarchar(12) NULL,
+[NOMJEFE] nvarchar(20) NOT NULL,
+[DFEDCOPIA] nvarchar(20) NULL,
+[DFPDNIV] nvarchar(60) NULL,
+[DFTipDoc] nvarchar(2) NULL,
+[DFEDDORIG] nvarchar(60) NULL,
+[DFPNIV] nvarchar(20) NOT NULL,
+[DFEstado] smallint NOT NULL,
+[DFEDORIG] nvarchar(20) NULL,
+[DFAESTADO] smallint NOT NULL,
+[DFDESTINO] nvarchar(25) NULL,
+[DFFchIng] datetime NULL,
+[DFMOVFCHULTIMA] datetime NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFMOV] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[DFMAILOUT]   Script Date: 30-08-2025 18:37:24 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFMAILOUT] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[DFTipo] nvarchar(1) NOT NULL,
+[DFAno] smallint NOT NULL,
+[DFMes] smallint NOT NULL,
+[DFCor] int NOT NULL,
+[DFCOROUT] smallint NOT NULL,
+[ESTADO] smallint NOT NULL,
+[PARA] nvarchar(250) NOT NULL,
+[DE] nvarchar(250) NOT NULL,
+[OBJETIVO] nvarchar(250) NULL,
+[TEXTO] nvarchar(MAX) NULL,
+[MARCAADJ] smallint NOT NULL,
+[CC] nvarchar(250) NOT NULL)
+ON [PRIMARY]
+TEXTIMAGE_ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFMAILOUT] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[DFMSGTEM]   Script Date: 30-08-2025 18:37:26 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFMSGTEM] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[NivCod] nvarchar(20) NOT NULL,
+[DFTipo] nvarchar(1) NOT NULL,
+[DFAno] smallint NOT NULL,
+[DFMes] smallint NOT NULL,
+[DFCor] int NOT NULL,
+[DFOCUR] smallint NOT NULL,
+[LINEA_MSJ] smallint NOT NULL,
+[OBSERTAREA] nvarchar(500) NULL,
+[FECHA_RESP] datetime NULL,
+[TAREAS] nvarchar(30) NULL,
+[OBSMSJ] nvarchar(MAX) NULL,
+[OBSTAREA] nvarchar(200) NULL,
+[DESTINOS] nvarchar(20) NULL,
+[USUCOD] nvarchar(25) NULL)
+ON [PRIMARY]
+TEXTIMAGE_ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFMSGTEM] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[DFNOTIFICADOR]   Script Date: 30-08-2025 18:37:27 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFNOTIFICADOR] (
+[ID_CODIGO] decimal(18, 0) IDENTITY(1, 1) NOT NULL,
+[WNORGDEPCOD] nvarchar(40) NOT NULL,
+[WNDFTipo] nvarchar(1) NOT NULL,
+[WNDFAno] smallint NOT NULL,
+[WNDFMes] smallint NOT NULL,
+[WNDFCor] int NOT NULL,
+[WNUSUCOD] nvarchar(25) NOT NULL,
+[WNNivCod] nvarchar(40) NOT NULL,
+[fecha_N] datetime NOT NULL,
+[hora_N] nvarchar(8) NOT NULL,
+[Leido] smallint NOT NULL,
+[Estado_N] smallint NOT NULL,
+[OPNOTIFICADOR] smallint NOT NULL,
+[DETALLE_N] nvarchar(500) NOT NULL,
+[USUCOD_GEN] nvarchar(25) NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFNOTIFICADOR] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[DFOBING]   Script Date: 30-08-2025 18:37:27 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFOBING] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[DFTipo] nvarchar(1) NOT NULL,
+[DFAno] smallint NOT NULL,
+[DFMes] smallint NOT NULL,
+[DFCor] int NOT NULL,
+[DFOCUR] smallint NOT NULL,
+[DFOBNRO] smallint NOT NULL,
+[DFOBFCH] datetime NULL,
+[DFOBSERV] nvarchar(MAX) NULL,
+[DFOBHRS] nvarchar(8) NULL,
+[USUCOD] nvarchar(25) NOT NULL,
+[DFOBENCAB] nvarchar(50) NULL)
+ON [PRIMARY]
+TEXTIMAGE_ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFOBING] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[DFOPNOTIFICADOR]   Script Date: 30-08-2025 18:37:29 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFOPNOTIFICADOR] (
+[CODOPCION] smallint NOT NULL,
+[ACCION] nvarchar(50) NOT NULL,
+[GLOSAACCION] nvarchar(500) NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFOPNOTIFICADOR] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[DFREMPAS]   Script Date: 30-08-2025 18:37:29 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFREMPAS] (
+[NOMREM] nvarchar(60) NOT NULL,
+[CIUDAD] nvarchar(18) NULL,
+[DIRECCION] nvarchar(60) NOT NULL,
+[TITULO] nvarchar(60) NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFREMPAS] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[DFRENVIO]   Script Date: 30-08-2025 18:37:31 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFRENVIO] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[DFTipo] nvarchar(1) NOT NULL,
+[DFAno] smallint NOT NULL,
+[DFMes] smallint NOT NULL,
+[DFCor] int NOT NULL,
+[DFOCUR] smallint NOT NULL,
+[DFENIV] smallint NOT NULL,
+[DFEESTADO] smallint NULL,
+[DFECodNiv] nvarchar(20) NULL,
+[DFETIPDOC] nvarchar(2) NULL,
+[DFENroCopia] smallint NULL,
+[DFEDESNIV] nvarchar(60) NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFRENVIO] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[DFRESPUESTAZONA]   Script Date: 30-08-2025 18:37:31 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFRESPUESTAZONA] (
+[NRESP] int NOT NULL,
+[NLineas] int NOT NULL,
+[RESP] char(80) NOT NULL,
+[FCHRESP] datetime NOT NULL,
+[HORARESP] char(8) NOT NULL,
+[RESPNIV] char(20) NOT NULL,
+[RESPUSU] char(25) NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFRESPUESTAZONA] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[DFRESPUETAZONAL]   Script Date: 30-08-2025 18:37:32 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFRESPUETAZONAL] (
+[NRESP] int NOT NULL,
+[NLineas] int NOT NULL,
+[RESP] nvarchar(80) NOT NULL,
+[FCHRESP] datetime NOT NULL,
+[HORARESP] nvarchar(8) NOT NULL,
+[RESPNIV] nvarchar(40) NOT NULL,
+[RESPUSU] nvarchar(40) NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFRESPUETAZONAL] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[DFRFAROS]   Script Date: 30-08-2025 18:37:35 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFRFAROS] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[DFTipo] nvarchar(1) NOT NULL,
+[DFAno] smallint NOT NULL,
+[DFMes] smallint NOT NULL,
+[DFCor] int NOT NULL,
+[DFOCUR] smallint NOT NULL,
+[DFOORG] smallint NOT NULL,
+[DFOCODORG] nvarchar(20) NULL,
+[DFOFARO] nvarchar(1) NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFRFAROS] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[DFRESTAR]   Script Date: 30-08-2025 18:37:35 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFRESTAR] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[TARANOTARE] smallint NOT NULL,
+[TARNIVRESP] nvarchar(20) NOT NULL,
+[TARNIVAUTO] nvarchar(20) NOT NULL,
+[TARUSUAUTO] nvarchar(25) NOT NULL,
+[TARNRO] int NOT NULL,
+[RESNRO] int NOT NULL,
+[RESFCHING] datetime NULL,
+[RESNIVING] nvarchar(20) NULL,
+[RESUSUING] nvarchar(25) NULL,
+[RESRESPUES] nvarchar(80) NULL,
+[RESOBSERV] nvarchar(MAX) NULL,
+[RESFCHRESP] datetime NULL,
+[RESNROHRS] smallint NULL)
+ON [PRIMARY]
+TEXTIMAGE_ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFRESTAR] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[DFRREFER]   Script Date: 30-08-2025 18:37:35 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFRREFER] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[DFTipo] nvarchar(1) NOT NULL,
+[DFAno] smallint NOT NULL,
+[DFMes] smallint NOT NULL,
+[DFCor] int NOT NULL,
+[DFOCUR] smallint NOT NULL,
+[DFRLREF] smallint NOT NULL,
+[DFRLEXISTE] smallint NULL,
+[DFRLNRO1] int NULL,
+[DFRLMES] smallint NULL,
+[DFRLTIPODO] smallint NULL,
+[DFRLREPSIG] nvarchar(20) NULL,
+[DFRLANO] smallint NULL,
+[DFRLCOR] int NULL,
+[DFRLNRO3] nvarchar(7) NULL,
+[DFRLCLASF] smallint NULL,
+[DFRLMNRO] int NULL,
+[DFRLDESTIP] nvarchar(15) NULL,
+[DFRLTIPO] nvarchar(1) NULL,
+[DFRLNRO2] nvarchar(7) NULL,
+[DFRLRespDOC] smallint NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFRREFER] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[DFSELECUSU]   Script Date: 30-08-2025 18:37:36 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFSELECUSU] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[NivCod] nvarchar(20) NOT NULL,
+[DFTipo] nvarchar(1) NOT NULL,
+[DFAno] smallint NOT NULL,
+[DFMes] smallint NOT NULL,
+[DFCor] int NOT NULL,
+[LINEA_DES] smallint NOT NULL,
+[NIVCOD_DES] nvarchar(25) NOT NULL,
+[USUCOD_DES] nvarchar(25) NOT NULL,
+[USUCOD] nvarchar(25) NULL,
+[VALIDA] smallint NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFSELECUSU] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[DFSESION]   Script Date: 30-08-2025 18:37:37 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFSESION] (
+[SEORGDEPCOD] nvarchar(40) NOT NULL,
+[SEUSUCOD] nvarchar(25) NOT NULL,
+[SENIVCOD] nvarchar(40) NOT NULL,
+[ID_SESION_WEB] nvarchar(100) NOT NULL,
+[DFSEFECHA] datetime NOT NULL,
+[DFSEHORA] nvarchar(8) NOT NULL,
+[SEIP] varchar(40) NULL,
+[SEACTIVO] int NULL,
+[SESISCOD] int NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFSESION] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[DFSeries]   Script Date: 30-08-2025 18:37:37 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFSeries] (
+[SerialEntity] char(32) NOT NULL,
+[SerialNumeric] decimal(12, 0) NOT NULL,
+[SerialText] char(16) NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFSeries] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[DFUSUAUTORIZADOS]   Script Date: 30-08-2025 18:37:41 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFUSUAUTORIZADOS] (
+[ORGDEPCOD] varchar(20) NOT NULL,
+[DFTipo] varchar(1) NOT NULL,
+[DFAno] smallint NOT NULL,
+[DFMes] smallint NOT NULL,
+[DFCor] int NOT NULL,
+[DFUSUAUTPOS] smallint NOT NULL,
+[DFUSUAUTSIGLA] char(50) NOT NULL,
+[USUCOD] varchar(25) NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFUSUAUTORIZADOS] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[DFTAREAS]   Script Date: 30-08-2025 18:37:41 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFTAREAS] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[TARANOTARE] smallint NOT NULL,
+[TARNIVRESP] nvarchar(20) NOT NULL,
+[TARNIVAUTO] nvarchar(20) NOT NULL,
+[TARUSUAUTO] nvarchar(25) NOT NULL,
+[TARNRO] int NOT NULL,
+[DFTipo] nvarchar(1) NOT NULL,
+[DFAno] smallint NOT NULL,
+[DFMes] smallint NOT NULL,
+[DFCor] int NOT NULL,
+[DFOCUR] smallint NOT NULL,
+[DFNIVCOD] nvarchar(20) NULL,
+[TARDNIVRES] nvarchar(60) NULL,
+[TARDNIVAUT] nvarchar(60) NULL,
+[TARESTADO] smallint NULL,
+[DFTACCION] nvarchar(30) NULL,
+[TARRESUMEN] nvarchar(1000) NULL,
+[TAROBSERV] nvarchar(MAX) NULL,
+[TARFCHRESP] datetime NULL,
+[TARPRIORID] smallint NULL,
+[TARCICLICIDAD] smallint NULL,
+[TARNRODIAS] smallint NULL,
+[TARTIPUSU] smallint NULL,
+[TARUSURESP] nvarchar(25) NULL,
+[TARTIPDEPEND] smallint NULL,
+[TARAUTLECT] smallint NULL,
+[TARRESLECT] smallint NULL,
+[TARFCHCTRL] datetime NULL,
+[TARHRSUTIL] int NULL,
+[TARHRSINGRESO] nvarchar(8) NULL,
+[TARFCHINGRESO] datetime NULL,
+[TARULTRESP] smallint NULL,
+[TARRESPDOC] smallint NULL)
+ON [PRIMARY]
+TEXTIMAGE_ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFTAREAS] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[DFTareaZonales]   Script Date: 30-08-2025 18:37:41 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFTareaZonales] (
+[NLineas] int NOT NULL,
+[O_ORGDEPCOD] nvarchar(40) NOT NULL,
+[O_DFTIPO] nvarchar(1) NOT NULL,
+[O_DFANO] smallint NOT NULL,
+[O_DFMES] smallint NOT NULL,
+[O_DFCOR] int NOT NULL,
+[O_NIVAUTOR] nvarchar(40) NOT NULL,
+[O_USUAUTOR] nvarchar(25) NOT NULL,
+[D_ORGDEPCOD] nvarchar(20) NOT NULL,
+[D_DFTIPO] nvarchar(1) NULL,
+[D_DFANO] smallint NULL,
+[D_DFMES] smallint NULL,
+[D_DFCOR] int NULL,
+[D_NIVRESP] nvarchar(20) NOT NULL,
+[D_USURESP] nvarchar(25) NOT NULL,
+[ANOTAREA] smallint NOT NULL,
+[ACCIONTAREA] nvarchar(30) NOT NULL,
+[RESUMENTAREA] nvarchar(200) NOT NULL,
+[FCHRESPTAREA] datetime NOT NULL,
+[ESTADOTAREA] smallint NOT NULL,
+[FCHINGTAREA] datetime NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFTareaZonales] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[DFTAREASDOC]   Script Date: 30-08-2025 18:37:42 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFTAREASDOC] (
+[DFTAREASDOCFECHAINICIO] datetime NOT NULL,
+[DFTAREASDOCFECHATERMINO] datetime NOT NULL,
+[DFTAREASDOCFECHAINGRESO] datetime NOT NULL,
+[DFTAREASDOCHORAINGRESO] datetime NOT NULL,
+[DFTAREASDOCID] int IDENTITY(1, 1) NOT NULL,
+[DFTAREASDOCIDPADRE] int NULL,
+[DFCor] int NOT NULL,
+[DFTipo] nvarchar(1) NOT NULL,
+[DFTAREASDOCOBSERV] nvarchar(1000) NULL,
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[DFTAREASDOCNIVAUTO] nvarchar(20) NOT NULL,
+[DFTAREASDOCNIVRESP] nvarchar(20) NOT NULL,
+[DFTAREASDOCUSUAUTO] nvarchar(25) NOT NULL,
+[DFTAREASDOCUSURESP] nvarchar(25) NOT NULL,
+[DFTACCION] nvarchar(30) NOT NULL,
+[DFTAREASDOCRESUMEN] nvarchar(500) NULL,
+[DFAno] smallint NOT NULL,
+[DFMes] smallint NOT NULL,
+[DFOCUR] smallint NOT NULL,
+[DFTAREASDOCESTADO] smallint NOT NULL,
+[DFTAREASDOCPRIORIDAD] smallint NOT NULL,
+[DFTAREASDOCRESPCONDOC] smallint NOT NULL,
+[DFTAREASDOCFECHAACEPTADA] datetime NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFTAREASDOC] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[EDD_ARCHIVOS]   Script Date: 30-08-2025 18:37:42 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[EDD_ARCHIVOS] (
+[GuidArchivo] uniqueidentifier NOT NULL,
+[archivo] varbinary(MAX) NULL,
+[extArchivo] varchar(10) NULL)
+ON [PRIMARY]
+TEXTIMAGE_ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[EDD_ARCHIVOS] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[EDD_FIRMAS]   Script Date: 30-08-2025 18:37:42 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[EDD_FIRMAS] (
+[GuidFirma] uniqueidentifier NOT NULL,
+[GuidPlantilla] uniqueidentifier NOT NULL,
+[posX] int NULL,
+[posY] int NULL,
+[tamW] int NULL,
+[tamH] int NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[EDD_FIRMAS] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[DFTEXTO]   Script Date: 30-08-2025 18:37:43 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFTEXTO] (
+[ORGDEPCOD] char(20) NOT NULL,
+[DFTIPO] char(1) NOT NULL,
+[DFANO] smallint NOT NULL,
+[DFMES] smallint NOT NULL,
+[DFCOR] int NOT NULL,
+[DFTXTVERSION] smallint NOT NULL,
+[DFTXTARCHIVO] text NOT NULL,
+[DFTXTAUTOR] char(20) NOT NULL,
+[DFTXTNIVCODAUTO] char(20) NOT NULL,
+[DFTXTFECHA] datetime NOT NULL,
+[DFTXTHORA] char(8) NOT NULL)
+ON [PRIMARY]
+TEXTIMAGE_ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFTEXTO] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[EDD_SEFORPLA]   Script Date: 30-08-2025 18:37:44 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[EDD_SEFORPLA] (
+[GuidSeforpla] uniqueidentifier ROWGUIDCOL NOT NULL,
+[ORGDEPCOD] nvarchar(20) NULL,
+[TIPO_COD] smallint NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[EDD_SEFORPLA] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[EDD_PLANTILLAS]   Script Date: 30-08-2025 18:37:44 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[EDD_PLANTILLAS] (
+[GuidPlantilla] uniqueidentifier NOT NULL,
+[GuidArchivo] uniqueidentifier NOT NULL,
+[GuidSeforpla] uniqueidentifier NOT NULL,
+[descPlantilla] varchar(50) NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[EDD_PLANTILLAS] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[EDN_CLASIFICACION]   Script Date: 30-08-2025 18:37:44 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[EDN_CLASIFICACION] (
+[ID_CLASIFICACION] smallint IDENTITY(1, 1) NOT FOR REPLICATION NOT NULL,
+[DESCRIPCION] varchar(20) NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[EDN_CLASIFICACION] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[EDD_VISACIONES]   Script Date: 30-08-2025 18:37:44 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[EDD_VISACIONES] (
+[GuidVisacion] uniqueidentifier NOT NULL,
+[GuidPlantilla] uniqueidentifier NOT NULL,
+[posX] int NULL,
+[posY] int NULL,
+[tamW] int NULL,
+[tamH] int NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[EDD_VISACIONES] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[EDN_DESTINATARIO]   Script Date: 30-08-2025 18:37:44 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[EDN_DESTINATARIO] (
+[ID_DESTINATARIO] int IDENTITY(1, 1) NOT FOR REPLICATION NOT NULL,
+[ID_MENSAJE] int NOT NULL,
+[SIGLA] varchar(20) NOT NULL,
+[ORDEN] smallint NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[EDN_DESTINATARIO] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[EDN_FARO]   Script Date: 30-08-2025 18:37:45 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[EDN_FARO] (
+[ID_FARO] int IDENTITY(1, 1) NOT FOR REPLICATION NOT NULL,
+[ID_MENSAJE] int NOT NULL,
+[SIGLA] varchar(20) NOT NULL,
+[ORDEN] smallint NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[EDN_FARO] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[EDN_ORIGINADOR]   Script Date: 30-08-2025 18:37:45 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[EDN_ORIGINADOR] (
+[ID_ORIGINADOR] smallint IDENTITY(1, 1) NOT FOR REPLICATION NOT NULL,
+[SIGLA] varchar(20) NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[EDN_ORIGINADOR] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[EDN_PREFIJO]   Script Date: 30-08-2025 18:37:45 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[EDN_PREFIJO] (
+[ID_PREFIJO] smallint IDENTITY(1, 1) NOT FOR REPLICATION NOT NULL,
+[DESCRIPCION] varchar(20) NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[EDN_PREFIJO] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[EDN_MENSAJE]   Script Date: 30-08-2025 18:37:45 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[EDN_MENSAJE] (
+[ID_MENSAJE] int IDENTITY(1, 1) NOT FOR REPLICATION NOT NULL,
+[NUMERO] char(15) NOT NULL,
+[TITULO] varchar(100) NOT NULL,
+[CUERPO] varchar(MAX) NOT NULL,
+[DOCUMENTO] image NULL,
+[ID_TIPO] smallint NOT NULL,
+[ID_CLASIFICACION] smallint NOT NULL,
+[ID_PREFIJO] smallint NOT NULL,
+[ID_ORIGINADOR] smallint NOT NULL,
+[USUARIO] varchar(20) NOT NULL,
+[FECHA_CREACION] datetime NULL,
+[FECHA_ACTUALIZACION] datetime NULL)
+ON [PRIMARY]
+TEXTIMAGE_ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[EDN_MENSAJE] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[EDN_TIPO]   Script Date: 30-08-2025 18:37:46 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[EDN_TIPO] (
+[ID_TIPO] smallint IDENTITY(1, 1) NOT FOR REPLICATION NOT NULL,
+[DESCRIPCION] varchar(20) NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[EDN_TIPO] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[EDN_XMT]   Script Date: 30-08-2025 18:37:46 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[EDN_XMT] (
+[ID_XMT] int IDENTITY(1, 1) NOT FOR REPLICATION NOT NULL,
+[ID_MENSAJE] int NOT NULL,
+[SIGLA] varchar(20) NOT NULL,
+[ORDEN] smallint NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[EDN_XMT] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[expcompartir]   Script Date: 30-08-2025 18:37:47 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[expcompartir] (
+[expid] uniqueidentifier NOT NULL,
+[comusuario] nvarchar(25) NOT NULL,
+[comnivel] nvarchar(20) NOT NULL,
+[comorgdepcod] nvarchar(20) NOT NULL,
+[comfercha] datetime NOT NULL,
+[comusucreador] nvarchar(25) NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[expcompartir] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[expdocref]   Script Date: 30-08-2025 18:37:49 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[expdocref] (
+[pkdocid] uniqueidentifier ROWGUIDCOL NOT NULL,
+[expid] uniqueidentifier NOT NULL,
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[DFTipo] nvarchar(1) NOT NULL,
+[DFAno] smallint NOT NULL,
+[DFMes] smallint NOT NULL,
+[DFCor] int NOT NULL,
+[hitsw] smallint NULL,
+[hitidRef] nvarchar(50) NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[expdocref] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[expedientes]   Script Date: 30-08-2025 18:37:49 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[expedientes] (
+[expid] uniqueidentifier ROWGUIDCOL NOT NULL,
+[expnombre] nvarchar(100) NOT NULL,
+[expfechacreacion] datetime NOT NULL,
+[expusucreador] nvarchar(25) NOT NULL,
+[expestado] smallint NULL,
+[expnumero] nvarchar(100) NULL,
+[expdescripcion] nvarchar(500) NOT NULL,
+[expfechavencimiento] nvarchar(12) NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[expedientes] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[exphistoria]   Script Date: 30-08-2025 18:37:50 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[exphistoria] (
+[expid] uniqueidentifier NOT NULL,
+[hisid] uniqueidentifier NOT NULL,
+[hisevento] nvarchar(500) NOT NULL,
+[hisusucreador] nvarchar(25) NOT NULL,
+[hisfecha] datetime NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[exphistoria] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[exphitos]   Script Date: 30-08-2025 18:37:51 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[exphitos] (
+[expid] uniqueidentifier NOT NULL,
+[hitid] uniqueidentifier NOT NULL,
+[hitnombre] nvarchar(100) NOT NULL,
+[hitfecha] datetime NOT NULL,
+[hitusucreador] nvarchar(25) NOT NULL,
+[hitorden] smallint NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[exphitos] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[explistachequeo]   Script Date: 30-08-2025 18:37:52 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[explistachequeo] (
+[expid] uniqueidentifier NOT NULL,
+[lischeid] uniqueidentifier NOT NULL,
+[lischetarea] nvarchar(500) NULL,
+[lischeactiva] smallint NULL,
+[lischetitulotarea] nvarchar(100) NULL,
+[lischefecha] datetime NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[explistachequeo] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[expobservacion]   Script Date: 30-08-2025 18:37:53 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[expobservacion] (
+[expid] uniqueidentifier NOT NULL,
+[obsid] decimal(10, 0) NOT NULL,
+[obsdescripcion] nvarchar(500) NOT NULL,
+[obsfecha] datetime NOT NULL,
+[obsusucreador] nvarchar(25) NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[expobservacion] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[expreferencias]   Script Date: 30-08-2025 18:37:53 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[expreferencias] (
+[expid] uniqueidentifier NOT NULL,
+[expidref] uniqueidentifier NOT NULL,
+[reffecha] datetime NOT NULL,
+[refusucreador] nvarchar(25) NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[expreferencias] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[F_DOC]   Script Date: 30-08-2025 18:37:54 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[F_DOC] (
+[IDF_DOC] smallint NOT NULL,
+[ORGDEPCOD_TMP] nvarchar(40) NOT NULL,
+[NIVCOD_TMP] nvarchar(40) NOT NULL,
+[DFTIPO_TMP] nvarchar(1) NOT NULL,
+[DFANO_TMP] smallint NOT NULL,
+[DFMES_TMP] smallint NOT NULL,
+[DFCOR_TMP] int NOT NULL,
+[USUCOD_TMP] nvarchar(25) NOT NULL,
+[FCHENVIAFIRMA_TMP] datetime NOT NULL,
+[NOMBREADJ_TMP] nvarchar(250) NOT NULL,
+[EXT_TMP] nvarchar(40) NOT NULL,
+[ARCHIVO_TMP] varbinary(MAX) NOT NULL,
+[ESTADO_TMP] nvarchar(1) NOT NULL,
+[DFDOCNRO_TMP] nvarchar(40) NOT NULL,
+[HORA_TMP] nvarchar(8) NOT NULL,
+[FCHFIRMA_TMP] datetime NULL,
+[NOMBREUSU_TMP] nvarchar(80) NOT NULL,
+[NIVDESC_TMP] nvarchar(60) NOT NULL,
+[OBSERRECHA_TMP] nvarchar(200) NULL)
+ON [PRIMARY]
+TEXTIMAGE_ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[F_DOC] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[FACTURASTMP]   Script Date: 30-08-2025 18:37:54 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[FACTURASTMP] (
+[ORGDEPCOD] char(20) NOT NULL,
+[DFTIPO] char(1) NOT NULL,
+[DFANO] smallint NOT NULL,
+[DFMES] smallint NOT NULL,
+[DFCOR] int NOT NULL,
+[FACNUMFOLIO] varchar(40) NOT NULL,
+[FACXML] varchar(250) NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[FACTURASTMP] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[FACTURAXMLPDF]   Script Date: 30-08-2025 18:37:54 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[FACTURAXMLPDF] (
+[FacturaFolio] nvarchar(50) NOT NULL,
+[FacturaRUTEmisor] nvarchar(50) NOT NULL,
+[FacturaRutReceptor] nvarchar(50) NOT NULL,
+[FacturatrackId] int NOT NULL,
+[FacturaXML] decimal(10, 0) NULL,
+[FacturaPDF] decimal(10, 0) NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[FACTURAXMLPDF] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[Files]   Script Date: 30-08-2025 18:37:54 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[Files] (
+[FileID] int IDENTITY(1, 1) NOT NULL,
+[FileGUID] uniqueidentifier NOT NULL,
+[FileName] varchar(128) NOT NULL,
+[FileCreatedDT] datetime NOT NULL,
+[FileBlob] varbinary(MAX) NULL,
+[FileSize] decimal(12, 0) NULL,
+[FileStoredName] varchar(256) NOT NULL,
+[FileExt] varchar(20) NOT NULL,
+[FileLocation] smallint NULL,
+[FilePublic] bit NULL,
+[FileToDelete] bit NULL,
+[FileHash] varchar(600) NULL)
+ON [PRIMARY]
+TEXTIMAGE_ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[Files] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[Files_old]   Script Date: 30-08-2025 18:37:54 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[Files_old] (
+[FileID] int IDENTITY(1, 1) NOT NULL,
+[FileGUID] uniqueidentifier NOT NULL,
+[FileName] char(128) NOT NULL,
+[FileCreatedDT] datetime NOT NULL,
+[FileBlob] varbinary(MAX) NULL,
+[FileSize] decimal(12, 0) NOT NULL,
+[FileStoredName] char(128) NOT NULL,
+[FileExt] char(20) NOT NULL,
+[FileLocation] smallint NOT NULL,
+[FilePublic] bit NOT NULL,
+[FileToDelete] bit NOT NULL)
+ON [PRIMARY]
+TEXTIMAGE_ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[Files_old] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[HistoriaPublica]   Script Date: 30-08-2025 18:37:54 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[HistoriaPublica] (
+[HistoriaPublicaId] smallint IDENTITY(1, 1) NOT NULL,
+[HistoriaPublicaFecha] datetime NOT NULL,
+[HistoriaPublicaDescripcion] nvarchar(500) NOT NULL,
+[BandejaEntradaId] int NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[HistoriaPublica] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[ListadoSistemas]   Script Date: 30-08-2025 18:37:56 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[ListadoSistemas] (
+[ListadoSistemasId] smallint IDENTITY(1, 1) NOT NULL,
+[ListadoSistemasNombre] nvarchar(40) NOT NULL,
+[ListadoSistemasFechaRegistro] datetime NOT NULL,
+[ListadoSistemasFechaExpiracion] datetime NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[ListadoSistemas] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[RegistroApp]   Script Date: 30-08-2025 18:37:57 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[RegistroApp] (
+[RegistroAppId] uniqueidentifier ROWGUIDCOL NOT NULL,
+[ListadoSistemasId] smallint NOT NULL,
+[RegistroAppClaveSecreta] nchar(32) NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[RegistroApp] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[ResponsableTMP]   Script Date: 30-08-2025 18:37:57 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[ResponsableTMP] (
+[idRespTMP] uniqueidentifier ROWGUIDCOL NOT NULL,
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[DFTipo] nvarchar(1) NOT NULL,
+[DFAno] smallint NOT NULL,
+[DFMes] smallint NOT NULL,
+[DFCor] int NOT NULL,
+[DFOCUR] smallint NOT NULL,
+[NIVCODRESP] nvarchar(20) NOT NULL,
+[USUCODRESP] nvarchar(25) NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[ResponsableTMP] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[SECATALO]   Script Date: 30-08-2025 18:37:57 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[SECATALO] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[CATCOD] int NOT NULL,
+[CATDESC] nvarchar(60) NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[SECATALO] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[SECATEGORIAS]   Script Date: 30-08-2025 18:37:57 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[SECATEGORIAS] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[IDCATEGORIA] smallint NOT NULL,
+[CATENOMBRE] nvarchar(200) NOT NULL,
+[CATEDESCRIPCION] nvarchar(200) NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[SECATEGORIAS] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[SECLASEG]   Script Date: 30-08-2025 18:37:58 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[SECLASEG] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[DFClasif] smallint NOT NULL,
+[DFNCLASIF] nvarchar(2) NOT NULL,
+[DFDClasif] nvarchar(15) NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[SECLASEG] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[SEConfiguracion]   Script Date: 30-08-2025 18:38:00 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[SEConfiguracion] (
+[idSECon] uniqueidentifier NOT NULL,
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[SECONsitio] nvarchar(1000) NOT NULL,
+[SECONMODULO] nvarchar(500) NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[SEConfiguracion] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[SEConfiguracion_old]   Script Date: 30-08-2025 18:38:01 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[SEConfiguracion_old] (
+[idSECon] uniqueidentifier NOT NULL,
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[SECONsitio] nvarchar(500) NOT NULL,
+[SECONMODULO] nvarchar(500) NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[SEConfiguracion_old] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[SECORFOR]   Script Date: 30-08-2025 18:38:01 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[SECORFOR] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[CORRTIP] nvarchar(8) NOT NULL,
+[CORRNRO] int NOT NULL,
+[CORRDES] nvarchar(60) NOT NULL,
+[CORRFCH] datetime NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[SECORFOR] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[SECORFORDOCTIPNIV]   Script Date: 30-08-2025 18:38:02 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[SECORFORDOCTIPNIV] (
+[ORGDEPCODTIPNIV] nvarchar(20) NOT NULL,
+[DFTipoTIPNIV] nvarchar(1) NOT NULL,
+[TIPOCODTIPNIV] smallint NOT NULL,
+[NivCodTIPNIV] nvarchar(20) NOT NULL,
+[FECHATIPNIV] datetime NOT NULL,
+[CONTADORTIPNIV] int NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[SECORFORDOCTIPNIV] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[SEDEFIMP]   Script Date: 30-08-2025 18:38:07 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[SEDEFIMP] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[ANCHO_ETIQUETA] smallint NOT NULL,
+[IMPRESORA] nvarchar(102) NULL,
+[MARGEN_IZQUIERD] smallint NULL,
+[ALTO_ETIQUETA] smallint NULL,
+[FUENTE_SUBRAYAD] nvarchar(1) NULL,
+[ALTO_PAPEL] smallint NULL,
+[SALTO_INFERERIO] smallint NULL,
+[FUENTE_BOLD] nvarchar(1) NULL,
+[SALTO_LATERAL] smallint NULL,
+[FUENTE_TACHADO] nvarchar(1) NULL,
+[FUENTE_ITALICO] nvarchar(1) NULL,
+[MARGEN_INFERIOR] smallint NULL,
+[MARGEN_DERECHO] smallint NULL,
+[FUENTE] nvarchar(50) NULL,
+[MARGEN_SUPERIOR] smallint NULL,
+[ANCHO_PAPEL] smallint NULL,
+[FUENTE_TAMANO] smallint NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[SEDEFIMP] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[SEFORDOCNIV]   Script Date: 30-08-2025 18:38:10 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[SEFORDOCNIV] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[NivCod] nvarchar(20) NOT NULL,
+[tipo_cod] smallint NOT NULL,
+[CORRELATIVO] int NOT NULL,
+[FECHACORRE] datetime NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[SEFORDOCNIV] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[SEEMAIL]   Script Date: 30-08-2025 18:38:10 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[SEEMAIL] (
+[ORGDEPCOD] char(20) NOT NULL,
+[EMEVENTO] smallint NOT NULL,
+[EMNOMBRE] char(100) NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[SEEMAIL] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[SEFORDOCDOCDIGITAL]   Script Date: 30-08-2025 18:38:14 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[SEFORDOCDOCDIGITAL] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[tipo_cod] smallint NOT NULL,
+[tipo_codDOCDIGITAL] smallint NOT NULL,
+[tipo_descDOCDIGITAL] nvarchar(100) NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[SEFORDOCDOCDIGITAL] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[SEFORDOC]   Script Date: 30-08-2025 18:38:14 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[SEFORDOC] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[tipo_cod] smallint NOT NULL,
+[TIPO_REC] int NOT NULL,
+[TIPO_INT] int NOT NULL,
+[tipo_desc] nvarchar(100) NOT NULL,
+[CORRN] int NOT NULL,
+[CORRFECHA] datetime NOT NULL,
+[TIPO_ENV] int NOT NULL,
+[SEFORDOCVISTAI] smallint NOT NULL,
+[SEFORDOCVISTAE] smallint NOT NULL,
+[SEFORDOCVISTAR] smallint NOT NULL,
+[SEFORDOCFORMATONUM] nvarchar(40) NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[SEFORDOC] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[SeFormaEnvio]   Script Date: 30-08-2025 18:38:16 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[SeFormaEnvio] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[IdFormaEnvio] smallint NOT NULL,
+[FormaEnvio] nvarchar(50) NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[SeFormaEnvio] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[SEFORDOCSII]   Script Date: 30-08-2025 18:38:17 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[SEFORDOCSII] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[tipo_cod] smallint NOT NULL,
+[DFTIPOSII] smallint NOT NULL,
+[DFDESCSII] nvarchar(60) NULL,
+[DFTIPOARCHIVOSII] nvarchar(40) NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[SEFORDOCSII] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[SEFORPLA]   Script Date: 30-08-2025 18:38:19 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[SEFORPLA] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[codform] nvarchar(100) NOT NULL,
+[USUCOD] nvarchar(25) NOT NULL,
+[tipo_cod] smallint NOT NULL,
+[nomform] nvarchar(30) NOT NULL,
+[blobform] varbinary(MAX) NOT NULL,
+[sisform] nvarchar(30) NOT NULL,
+[obsform] nvarchar(255) NOT NULL,
+[extform] nvarchar(10) NOT NULL)
+ON [PRIMARY]
+TEXTIMAGE_ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[SEFORPLA] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[SEFORPLADATOS]   Script Date: 30-08-2025 18:38:19 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[SEFORPLADATOS] (
+[GuidEditorDatos] uniqueidentifier ROWGUIDCOL NOT NULL,
+[codformDatos] varchar(100) NOT NULL,
+[ORGDEPCODDATOS] varchar(40) NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[SEFORPLADATOS] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[SEFORPLAMEDIDAS]   Script Date: 30-08-2025 18:38:21 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[SEFORPLAMEDIDAS] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[codform] nvarchar(100) NOT NULL,
+[IDFORPLAMED] smallint NOT NULL,
+[FORPLAMEDOBJETO] nvarchar(40) NOT NULL,
+[FORPLAMEDX] smallint NOT NULL,
+[FORPLAMEDY] smallint NOT NULL,
+[FORPLAMEDANCHO] smallint NOT NULL,
+[FORPLAMEDALTO] smallint NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[SEFORPLAMEDIDAS] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[SEFORPLAHTML]   Script Date: 30-08-2025 18:38:21 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[SEFORPLAHTML] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[IDPLAHTML] nvarchar(40) NOT NULL,
+[DESCPLANTILLA] nvarchar(100) NULL,
+[ARCHIVOHTML] nvarchar(MAX) NOT NULL)
+ON [PRIMARY]
+TEXTIMAGE_ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[SEFORPLAHTML] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[SEFORSII]   Script Date: 30-08-2025 18:38:22 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[SEFORSII] (
+[TIPO_DTE] smallint NOT NULL,
+[DESCTIPODTE] nvarchar(150) NOT NULL,
+[DESCMINTIPODTE] nvarchar(150) NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[SEFORSII] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[SELOG]   Script Date: 30-08-2025 18:38:26 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[SELOG] (
+[SELOGID] decimal(12, 0) IDENTITY(1, 1) NOT NULL,
+[SELOGUSURIO] nvarchar(20) NULL,
+[SELOGNIVEL] nvarchar(20) NULL,
+[SELOGORGDEPCOD] nvarchar(20) NULL,
+[SELOGFECHAHORA] datetime NULL,
+[SELOGTIPO] nvarchar(30) NULL,
+[SELOGDETALLE] nvarchar(MAX) NULL)
+ON [PRIMARY]
+TEXTIMAGE_ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[SELOG] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[SENIVEL]   Script Date: 30-08-2025 18:38:26 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[SENIVEL] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[NivCod] nvarchar(20) NOT NULL,
+[NIVADR1] smallint NULL,
+[NIVADE1] smallint NULL,
+[NIVADI3] smallint NULL,
+[NivJefe] nvarchar(20) NULL,
+[NIVAMR3] smallint NULL,
+[NIVADR5] smallint NULL,
+[NIVCORR] int NULL,
+[NIVADR2] smallint NULL,
+[NIVAME2] smallint NULL,
+[NIVCORI] int NULL,
+[NIVVERNRO] smallint NULL,
+[NIVIDD] smallint NULL,
+[NIVJEFEDES] nvarchar(60) NULL,
+[NIVADE2] smallint NULL,
+[NIVADI4] smallint NULL,
+[NIVAMR4] smallint NULL,
+[NIVADR4] smallint NULL,
+[NIVRESP] nvarchar(60) NULL,
+[NIVAMR5] smallint NULL,
+[NIVAMR2] smallint NULL,
+[NIVADE5] smallint NULL,
+[NivDesc] nvarchar(60) NOT NULL,
+[NIVADI5] smallint NULL,
+[NIVADE4] smallint NULL,
+[NIVADR3] smallint NULL,
+[NIVAME3] smallint NULL,
+[NIVADI2] smallint NULL,
+[NIVAME1] smallint NULL,
+[NIVAME5] smallint NULL,
+[NIVORIG] smallint NULL,
+[NIVAME4] smallint NULL,
+[NIVAMR1] smallint NULL,
+[NIVADE3] smallint NULL,
+[NIVADI1] smallint NULL,
+[NIVTARNRO] smallint NULL,
+[NIVSIGLA] nvarchar(7) NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[SENIVEL] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[SELISTIP]   Script Date: 30-08-2025 18:38:27 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[SELISTIP] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[NivCod] nvarchar(20) NOT NULL,
+[USUCOD] nvarchar(25) NOT NULL,
+[IPNUM] smallint NOT NULL,
+[IP] nvarchar(15) NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[SELISTIP] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[SEMODULO]   Script Date: 30-08-2025 18:38:28 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[SEMODULO] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[siscod] smallint NOT NULL,
+[sisnom] nvarchar(30) NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[SEMODULO] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[SEOPUSSI]   Script Date: 30-08-2025 18:38:28 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[SEOPUSSI] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[siscod] smallint NOT NULL,
+[NivCod] nvarchar(20) NOT NULL,
+[opccod] nvarchar(10) NOT NULL,
+[USUCOD] nvarchar(25) NOT NULL,
+[priind] nvarchar(1) NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[SEOPUSSI] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[SEORGDEP]   Script Date: 30-08-2025 18:38:28 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[SEORGDEP] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[ORGSUPCOD] nvarchar(20) NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[SEORGDEP] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[SEPARAME]   Script Date: 30-08-2025 18:38:30 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[SEPARAME] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[SISPARCOD] int NOT NULL,
+[DFVAR17] nvarchar(20) NULL,
+[SISPARUSDB] nvarchar(20) NULL,
+[DFVAR13] nvarchar(20) NULL,
+[DFVAR18] nvarchar(20) NULL,
+[DFVAR9] nvarchar(20) NULL,
+[DFVAR14] nvarchar(20) NULL,
+[DFVAR15] nvarchar(20) NULL,
+[DFVAR12] nvarchar(20) NULL,
+[SISPARFECO] nvarchar(20) NULL,
+[DFVAR10] nvarchar(20) NULL,
+[SISPARVESI] nvarchar(20) NULL,
+[DFVAR1] nvarchar(20) NOT NULL,
+[SISPAREJE] nvarchar(20) NULL,
+[DFVAR19] nvarchar(20) NULL,
+[DFVAR16] nvarchar(20) NULL,
+[DFVAR23] nvarchar(20) NULL,
+[SISPARTMP] nvarchar(8) NULL,
+[DFVAR22] smallint NULL,
+[DFVAR20] nvarchar(20) NULL,
+[SISPARODB] nvarchar(20) NULL,
+[DFVAR21] smallint NULL,
+[SISPAROBS] nvarchar(MAX) NULL,
+[SISPARPWS] nvarchar(20) NULL,
+[DFVAR11] nvarchar(20) NULL)
+ON [PRIMARY]
+TEXTIMAGE_ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[SEPARAME] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[SENIVDES]   Script Date: 30-08-2025 18:38:30 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[SENIVDES] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[NivCod] nvarchar(20) NOT NULL,
+[NIVDESPOD] nvarchar(20) NOT NULL,
+[NIVDESP] nvarchar(20) NOT NULL,
+[NIVDJEFE] nvarchar(20) NULL,
+[NIVCONF] smallint NULL,
+[FRECUENCIA] smallint NULL,
+[NIVDDESP] nvarchar(60) NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[SENIVDES] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[SERESNUM]   Script Date: 30-08-2025 18:38:31 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[SERESNUM] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[TIPO] smallint NOT NULL,
+[NUMRESER] int NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[SERESNUM] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[SEREMTIP]   Script Date: 30-08-2025 18:38:33 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[SEREMTIP] (
+[REMTIPO] nvarchar(3) NOT NULL,
+[REMDESC] nvarchar(30) NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[SEREMTIP] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[SEPERMIS]   Script Date: 30-08-2025 18:38:33 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[SEPERMIS] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[siscod] smallint NOT NULL,
+[opccod] nvarchar(10) NOT NULL,
+[OPCLAB] nvarchar(10) NOT NULL,
+[opcdes] nvarchar(60) NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[SEPERMIS] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[SESUBCATEGORIAS]   Script Date: 30-08-2025 18:38:34 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[SESUBCATEGORIAS] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[CATCOD] smallint NOT NULL,
+[IDSUBCATEGORIA] smallint NOT NULL,
+[SUBCATENOMBRE] nvarchar(200) NOT NULL,
+[SUBCATEDESCRIPCION] nvarchar(200) NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[SESUBCATEGORIAS] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[SEPERSONAL]   Script Date: 30-08-2025 18:38:35 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[SEPERSONAL] (
+[USUCOD] nvarchar(25) NOT NULL,
+[USUDELCOPI] smallint NULL,
+[usuRut] nvarchar(12) NULL,
+[USUPOP3SSL] smallint NULL,
+[usuApMater] nvarchar(25) NULL,
+[USUSMTPSSL] smallint NULL,
+[USUPOP3POR] int NULL,
+[USUDVNPI] nvarchar(1) NULL,
+[USUPOP3] nvarchar(255) NULL,
+[USUKEY] nvarchar(250) NULL,
+[USUC4] nvarchar(20) NULL,
+[usucorreo] nvarchar(45) NULL,
+[usuApPater] nvarchar(25) NULL,
+[USUSMTP] nvarchar(255) NULL,
+[USUC2] nvarchar(20) NULL,
+[USUSMTPPOR] int NULL,
+[USUC1] nvarchar(20) NULL,
+[USUFOTO] varbinary(MAX) NULL,
+[USUDVRUT] smallint NULL,
+[USUCLAVECO] nvarchar(20) NULL,
+[USERPC] nvarchar(80) NULL,
+[usunom] nvarchar(30) NULL,
+[USUSPA] smallint NULL,
+[USUCLASIF] smallint NULL,
+[USUNPI] int NULL,
+[USUC3] nvarchar(20) NULL,
+[DFClasif] smallint NULL,
+[usucargo] nvarchar(150) NULL,
+[USUUSUCOR] nvarchar(255) NULL,
+[USUCLA] nvarchar(50) NOT NULL)
+ON [PRIMARY]
+TEXTIMAGE_ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[SEPERSONAL] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[SEREM]   Script Date: 30-08-2025 18:38:35 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[SEREM] (
+[REMCod] nvarchar(20) NOT NULL,
+[REMRUTVALID] smallint NULL,
+[REMSECTOR] nvarchar(20) NULL,
+[REMNomb] nvarchar(60) NOT NULL,
+[REMECOMUNA] nvarchar(18) NULL,
+[REMNRO] int NULL,
+[REMEMAIL] nvarchar(100) NULL,
+[REMFAX] nvarchar(10) NULL,
+[REMRUT] nvarchar(12) NULL,
+[REMDIREC] nvarchar(60) NULL,
+[REMTELEF] nvarchar(10) NULL,
+[REMTIPO] nvarchar(3) NOT NULL,
+[REMZIP] varchar(40) NULL,
+[REMREGION] varchar(40) NOT NULL,
+[REMBLOCK] varchar(60) NULL,
+[REMCALLE] varchar(60) NULL,
+[REMCODDOCDIGITAL] decimal(10, 0) NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[SEREM] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[SEUSUFIRMA]   Script Date: 30-08-2025 18:38:35 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[SEUSUFIRMA] (
+[GUID_USU] uniqueidentifier NOT NULL,
+[USUCOD] nvarchar(20) NOT NULL,
+[FIRMA_PNG] varbinary(MAX) NULL,
+[MOSCA_PNG] varbinary(MAX) NULL,
+[claUsuFirma] int NULL,
+[usuSigla] varchar(10) NULL)
+ON [PRIMARY]
+TEXTIMAGE_ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[SEUSUFIRMA] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[SGP_Serials]   Script Date: 30-08-2025 18:38:35 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[SGP_Serials] (
+[SerialEntity] char(32) NOT NULL,
+[SerialNumeric] decimal(12, 0) NOT NULL,
+[SerialText] char(16) NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[SGP_Serials] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[SEUSUFIRMADOR]   Script Date: 30-08-2025 18:38:35 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[SEUSUFIRMADOR] (
+[IDUSUFIR] uniqueidentifier ROWGUIDCOL NOT NULL,
+[USUCODFIRMADOR] varchar(25) NOT NULL,
+[USUFIRFIRMA] varbinary(MAX) NULL,
+[USUFIRCLAVE] char(512) NOT NULL,
+[USUFIRSIGLA] char(50) NOT NULL)
+ON [PRIMARY]
+TEXTIMAGE_ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[SEUSUFIRMADOR] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[SETIPTAR]   Script Date: 30-08-2025 18:38:35 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[SETIPTAR] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[DFTACCION] nvarchar(30) NOT NULL,
+[DFTACOBSV] nvarchar(MAX) NULL,
+[DFTACDESC] nvarchar(60) NULL)
+ON [PRIMARY]
+TEXTIMAGE_ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[SETIPTAR] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[SEUSUARI]   Script Date: 30-08-2025 18:38:36 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[SEUSUARI] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[NivCod] nvarchar(20) NOT NULL,
+[USUCOD] nvarchar(25) NOT NULL,
+[DESCCARGO] nvarchar(150) NULL,
+[USUCODACTIVOSUBRO] bit NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[SEUSUARI] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[SEUSUSIS]   Script Date: 30-08-2025 18:38:36 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[SEUSUSIS] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[siscod] smallint NOT NULL,
+[NivCod] nvarchar(20) NOT NULL,
+[USUCOD] nvarchar(25) NOT NULL,
+[USUTIP] nvarchar(1) NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[SEUSUSIS] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[SEUSUPERFIL]   Script Date: 30-08-2025 18:38:37 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[SEUSUPERFIL] (
+[ORGDEPCOD] char(20) NOT NULL,
+[NIVCOD] char(20) NOT NULL,
+[USUCOD] char(25) NOT NULL,
+[PERFIL] smallint NOT NULL,
+[PORDEFECTO] smallint NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[SEUSUPERFIL] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[TMPDFSELECCION]   Script Date: 30-08-2025 18:38:39 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[TMPDFSELECCION] (
+[DFSELGRID] nvarchar(100) NOT NULL,
+[idtemp] smallint NOT NULL,
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[NivCod] nvarchar(20) NOT NULL,
+[USUCOD] nvarchar(25) NOT NULL,
+[DFTipo] nvarchar(1) NOT NULL,
+[DFAno] smallint NOT NULL,
+[DFMes] smallint NOT NULL,
+[DFCor] int NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[TMPDFSELECCION] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[TMPADJUNTOS]   Script Date: 30-08-2025 18:38:41 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[TMPADJUNTOS] (
+[TMPIDADJUNTOS] int IDENTITY(1, 1) NOT NULL,
+[TMPGUIDADJUNTOS] uniqueidentifier NULL,
+[TMPNOMBREADJUNTOS] nvarchar(200) NULL,
+[TMPEXTADJUNTOS] nvarchar(10) NULL,
+[TMPARCHIVOADJUNTOS] varbinary(MAX) NULL,
+[TMPESDOCUMENTO] smallint NULL)
+ON [PRIMARY]
+TEXTIMAGE_ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[TMPADJUNTOS] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[TMPDFDOCUM]   Script Date: 30-08-2025 18:38:41 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[TMPDFDOCUM] (
+[TMPIDDFDOCUM] int IDENTITY(1, 1) NOT NULL,
+[TMPGUIDDFDOCUM] uniqueidentifier NULL,
+[TMPDFFCHORIG] datetime NULL,
+[TMPDFFCHEXPIR] datetime NULL,
+[TMPDFORINiv] nvarchar(20) NULL,
+[TMPDFObjetivo] nvarchar(2000) NULL,
+[TMPCATCOD] int NULL,
+[TMPDFORICod] nvarchar(20) NULL,
+[TMPDFHRSRECEP] nvarchar(5) NULL,
+[TMPDFDocNro] nvarchar(40) NULL,
+[TMPDFFchIng] datetime NULL,
+[TMPDFPRIOR] nvarchar(1) NULL,
+[TMPTIPO_COD] smallint NOT NULL,
+[TMPDFClASIF] smallint NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[TMPDFDOCUM] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[TMPENVIO]   Script Date: 30-08-2025 18:38:41 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[TMPENVIO] (
+[TMPIDENVIO] int IDENTITY(1, 1) NOT NULL,
+[TMPGUIDENVIO] uniqueidentifier NULL,
+[TMPDFECodNiv] nvarchar(20) NULL,
+[TMPUSUCODRESPONSAB] nvarchar(25) NULL,
+[TMPENVIOUSUCREADOR] nvarchar(25) NULL,
+[TMPENVIONIVCREADOR] nvarchar(20) NULL,
+[TMPENVIOTIPO] nvarchar(200) NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[TMPENVIO] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[TMPImagen]   Script Date: 30-08-2025 18:38:43 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[TMPImagen] (
+[TMPIDPK] int IDENTITY(1, 1) NOT NULL,
+[TMPNUMPAG] smallint NULL,
+[TMPFECHAING] datetime NULL,
+[TMPIMAGEN] varbinary(MAX) NULL,
+[TMPGUIDING] uniqueidentifier NULL)
+ON [PRIMARY]
+TEXTIMAGE_ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[TMPImagen] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[TMPTAREAS]   Script Date: 30-08-2025 18:38:43 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[TMPTAREAS] (
+[TMPIDTAREAS] int IDENTITY(1, 1) NOT NULL,
+[TMPGUIDTAREAS] uniqueidentifier NULL,
+[TMPUSURESTAREAS] nvarchar(20) NULL,
+[TMPNIVELRESTAREAS] nvarchar(20) NULL,
+[TMPFECHARESPTAREAS] datetime NULL,
+[TMPDFACCIONTAREAS] nvarchar(30) NULL,
+[TMPRESUMENTAREAS] nvarchar(100) NULL,
+[TMPOBSERTAREAS] nvarchar(MAX) NULL)
+ON [PRIMARY]
+TEXTIMAGE_ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[TMPTAREAS] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[TMPOBSERVACION]   Script Date: 30-08-2025 18:38:44 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[TMPOBSERVACION] (
+[TMPIDOBSERVACION] int IDENTITY(1, 1) NOT NULL,
+[TMPGUIDBSERVACION] uniqueidentifier NULL,
+[TMPFECHABSERVACION] datetime NULL,
+[TMPHORABSERVACION] nchar(20) NULL,
+[TMPNOTABSERVACION] nvarchar(MAX) NULL)
+ON [PRIMARY]
+TEXTIMAGE_ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[TMPOBSERVACION] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[TX_TMPEDITOR]   Script Date: 30-08-2025 18:38:45 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[TX_TMPEDITOR] (
+[GuidEditor] uniqueidentifier ROWGUIDCOL NOT NULL,
+[ORGDEPCOD] nvarchar(20) NULL,
+[DFTipo] nvarchar(1) NULL,
+[DFAno] smallint NULL,
+[DFMes] smallint NULL,
+[DFCor] int NULL,
+[DFOCUR] smallint NULL,
+[USUCOD] nvarchar(25) NULL,
+[USUNIV] nvarchar(60) NULL,
+[OPCION] smallint NULL,
+[VERSION] smallint NULL,
+[PLANTILLAE] nvarchar(100) NULL,
+[MODULO] nvarchar(50) NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[TX_TMPEDITOR] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[TMPREFERENCIAS]   Script Date: 30-08-2025 18:38:45 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[TMPREFERENCIAS] (
+[TMPIDREFERENCIAS] int IDENTITY(1, 1) NOT NULL,
+[TMPGUIDREFERENCIAS] uniqueidentifier NULL,
+[TMPORGDEPCODREFERENCIAS] nvarchar(20) NULL,
+[TMPDFTIPOREFERENCIAS] nvarchar(1) NULL,
+[TMPDFANOREFERENCIAS] smallint NULL,
+[TMPDFMESREFERENCIAS] smallint NULL,
+[TMPDFCORREFERENCIAS] int NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[TMPREFERENCIAS] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[VISTADFTAREAScc]   Script Date: 30-08-2025 18:38:45 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[VISTADFTAREAScc] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[TARANOTARE] smallint NOT NULL,
+[TARNIVRESP] nvarchar(20) NOT NULL,
+[TARNIVAUTO] nvarchar(20) NOT NULL,
+[TARUSUAUTO] nvarchar(25) NOT NULL,
+[TARNRO] int NOT NULL,
+[DFTIPO] nvarchar(1) NOT NULL,
+[DFANO] smallint NOT NULL,
+[DFMES] smallint NOT NULL,
+[DFCOR] int NOT NULL,
+[DFOCUR] smallint NOT NULL,
+[DFNIVCOD] nvarchar(20) NULL,
+[TARDNIVRES] nvarchar(60) NULL,
+[TARDNIVAUT] nvarchar(60) NULL,
+[TARESTADO] smallint NULL,
+[DFTACCION] nvarchar(30) NULL,
+[TARRESUMEN] nvarchar(1000) NULL,
+[TAROBSERV] nvarchar(MAX) NULL,
+[TARFCHRESP] datetime NULL,
+[TARPRIORID] smallint NULL,
+[TARCICLICIDAD] smallint NULL,
+[TARNRODIAS] smallint NULL,
+[TARTIPUSU] smallint NULL,
+[TARUSURESP] nvarchar(25) NULL,
+[TARTIPDEPEND] smallint NULL,
+[TARAUTLECT] smallint NULL,
+[TARRESLECT] smallint NULL,
+[TARFCHCTRL] datetime NULL,
+[TARHRSUTIL] int NULL,
+[TARHRSINGRESO] nvarchar(8) NULL,
+[TARFCHINGRESO] datetime NULL,
+[TARULTRESP] smallint NULL,
+[TOTAL_TAREA] int NULL,
+[TOTAL_ATRAZADAS] int NULL,
+[TOTAL_PENDIENTES] int NULL,
+[TOTAL_CUMPLIDAS] int NULL,
+[COLORTAREA] int NULL)
+ON [PRIMARY]
+TEXTIMAGE_ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[VISTADFTAREAScc] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[WV_CASILLA]   Script Date: 30-08-2025 18:38:46 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[WV_CASILLA] (
+[ID_CASILLA] int NOT NULL,
+[SIGLA] char(20) NOT NULL,
+[ABREVIATUR] char(40) NOT NULL,
+[NOMBRE_CAS] char(120) NOT NULL,
+[RESPONSABL] char(120) NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[WV_CASILLA] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[WV_LISTA]   Script Date: 30-08-2025 18:38:46 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[WV_LISTA] (
+[ID_LISTA] int NOT NULL,
+[NOMBRE_LIS] char(60) NOT NULL,
+[ID_ESTADO] smallint NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[WV_LISTA] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[WV_MATERIA]   Script Date: 30-08-2025 18:38:47 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[WV_MATERIA] (
+[ID_MATERIA] int NOT NULL,
+[MATERIA] char(60) NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[WV_MATERIA] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[WV_LISTA_C]   Script Date: 30-08-2025 18:38:47 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[WV_LISTA_C] (
+[ID_LISTA] int NOT NULL,
+[ID_CASILLA] int NOT NULL,
+[ID_EST_Cas] int NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[WV_LISTA_C] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
+/****** Object: Table [dbo].[WV_REPARTI]   Script Date: 30-08-2025 18:38:47 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[WV_REPARTI] (
+[ID_REPARTI] int NOT NULL,
+[REPARTICIO] char(60) NOT NULL,
+[IP_REPARTI] char(60) NOT NULL,
+[ACTIVO] smallint NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[WV_REPARTI] SET (LOCK_ESCALATION = TABLE);
+GO
+
+
