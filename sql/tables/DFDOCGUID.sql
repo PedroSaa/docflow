@@ -1,0 +1,19 @@
+/****** Object: Table [dbo].[DFDOCGUID]   Script Date: 30-08-2025 18:36:52 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFDOCGUID] (
+[GUID_DOC] uniqueidentifier NOT NULL,
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[DFTipo] nvarchar(1) NOT NULL,
+[DFAno] smallint NOT NULL,
+[DFMes] smallint NOT NULL,
+[DFCor] int NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFDOCGUID] SET (LOCK_ESCALATION = TABLE);
+GO

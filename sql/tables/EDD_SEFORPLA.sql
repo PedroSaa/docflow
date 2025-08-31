@@ -1,0 +1,16 @@
+/****** Object: Table [dbo].[EDD_SEFORPLA]   Script Date: 30-08-2025 18:37:44 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[EDD_SEFORPLA] (
+[GuidSeforpla] uniqueidentifier ROWGUIDCOL NOT NULL,
+[ORGDEPCOD] nvarchar(20) NULL,
+[TIPO_COD] smallint NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[EDD_SEFORPLA] SET (LOCK_ESCALATION = TABLE);
+GO

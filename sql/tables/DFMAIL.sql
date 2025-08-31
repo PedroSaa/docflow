@@ -1,0 +1,28 @@
+/****** Object: Table [dbo].[DFMAIL]   Script Date: 30-08-2025 18:37:19 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFMAIL] (
+[ID] int IDENTITY(1, 1) NOT NULL,
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[MID] nvarchar(48) NOT NULL,
+[MCARPETA] nvarchar(1000) NULL,
+[MCCOPIA] nvarchar(1000) NULL,
+[MMAL] nvarchar(1000) NULL,
+[MNOMBRE] nvarchar(1000) NULL,
+[MHORA] nvarchar(8) NULL,
+[MCORREO] nvarchar(1000) NULL,
+[MADJ] varbinary(MAX) NULL,
+[MCTEXTO] nvarchar(MAX) NULL,
+[MFEMISION] nvarchar(50) NULL,
+[MOBJETIVO] nvarchar(1000) NULL,
+[enviado] smallint NOT NULL)
+ON [PRIMARY]
+TEXTIMAGE_ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFMAIL] SET (LOCK_ESCALATION = TABLE);
+GO

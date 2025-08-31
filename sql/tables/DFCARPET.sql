@@ -1,0 +1,22 @@
+/****** Object: Table [dbo].[DFCARPET]   Script Date: 30-08-2025 18:36:46 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFCARPET] (
+[DFCORGDEP] nvarchar(20) NOT NULL,
+[DFCNIVCOD] nvarchar(20) NOT NULL,
+[DFCID] nvarchar(12) NOT NULL,
+[DFFCREA] datetime NULL,
+[DFCDOF] nvarchar(25) NULL,
+[DFCDEST] nvarchar(25) NULL,
+[DFCDDREC] nvarchar(25) NULL,
+[DFCDESC] nvarchar(30) NOT NULL,
+[DFCDIFIC] nvarchar(25) NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFCARPET] SET (LOCK_ESCALATION = TABLE);
+GO

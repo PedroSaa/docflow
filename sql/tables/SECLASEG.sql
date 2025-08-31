@@ -1,0 +1,17 @@
+/****** Object: Table [dbo].[SECLASEG]   Script Date: 30-08-2025 18:37:58 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[SECLASEG] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[DFClasif] smallint NOT NULL,
+[DFNCLASIF] nvarchar(2) NOT NULL,
+[DFDClasif] nvarchar(15) NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[SECLASEG] SET (LOCK_ESCALATION = TABLE);
+GO

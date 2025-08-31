@@ -1,0 +1,18 @@
+/****** Object: Table [dbo].[SELISTIP]   Script Date: 30-08-2025 18:38:27 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[SELISTIP] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[NivCod] nvarchar(20) NOT NULL,
+[USUCOD] nvarchar(25) NOT NULL,
+[IPNUM] smallint NOT NULL,
+[IP] nvarchar(15) NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[SELISTIP] SET (LOCK_ESCALATION = TABLE);
+GO

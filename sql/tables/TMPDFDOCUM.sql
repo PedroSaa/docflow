@@ -1,0 +1,27 @@
+/****** Object: Table [dbo].[TMPDFDOCUM]   Script Date: 30-08-2025 18:38:41 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[TMPDFDOCUM] (
+[TMPIDDFDOCUM] int IDENTITY(1, 1) NOT NULL,
+[TMPGUIDDFDOCUM] uniqueidentifier NULL,
+[TMPDFFCHORIG] datetime NULL,
+[TMPDFFCHEXPIR] datetime NULL,
+[TMPDFORINiv] nvarchar(20) NULL,
+[TMPDFObjetivo] nvarchar(2000) NULL,
+[TMPCATCOD] int NULL,
+[TMPDFORICod] nvarchar(20) NULL,
+[TMPDFHRSRECEP] nvarchar(5) NULL,
+[TMPDFDocNro] nvarchar(40) NULL,
+[TMPDFFchIng] datetime NULL,
+[TMPDFPRIOR] nvarchar(1) NULL,
+[TMPTIPO_COD] smallint NOT NULL,
+[TMPDFClASIF] smallint NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[TMPDFDOCUM] SET (LOCK_ESCALATION = TABLE);
+GO
