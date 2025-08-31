@@ -1,0 +1,16 @@
+/****** Object: Table [dbo].[SEMODULO]   Script Date: 30-08-2025 18:38:28 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[SEMODULO] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[siscod] smallint NOT NULL,
+[sisnom] nvarchar(30) NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[SEMODULO] SET (LOCK_ESCALATION = TABLE);
+GO

@@ -1,0 +1,47 @@
+/****** Object: Table [dbo].[DFTAREAS]   Script Date: 30-08-2025 18:37:41 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFTAREAS] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[TARANOTARE] smallint NOT NULL,
+[TARNIVRESP] nvarchar(20) NOT NULL,
+[TARNIVAUTO] nvarchar(20) NOT NULL,
+[TARUSUAUTO] nvarchar(25) NOT NULL,
+[TARNRO] int NOT NULL,
+[DFTipo] nvarchar(1) NOT NULL,
+[DFAno] smallint NOT NULL,
+[DFMes] smallint NOT NULL,
+[DFCor] int NOT NULL,
+[DFOCUR] smallint NOT NULL,
+[DFNIVCOD] nvarchar(20) NULL,
+[TARDNIVRES] nvarchar(60) NULL,
+[TARDNIVAUT] nvarchar(60) NULL,
+[TARESTADO] smallint NULL,
+[DFTACCION] nvarchar(30) NULL,
+[TARRESUMEN] nvarchar(1000) NULL,
+[TAROBSERV] nvarchar(MAX) NULL,
+[TARFCHRESP] datetime NULL,
+[TARPRIORID] smallint NULL,
+[TARCICLICIDAD] smallint NULL,
+[TARNRODIAS] smallint NULL,
+[TARTIPUSU] smallint NULL,
+[TARUSURESP] nvarchar(25) NULL,
+[TARTIPDEPEND] smallint NULL,
+[TARAUTLECT] smallint NULL,
+[TARRESLECT] smallint NULL,
+[TARFCHCTRL] datetime NULL,
+[TARHRSUTIL] int NULL,
+[TARHRSINGRESO] nvarchar(8) NULL,
+[TARFCHINGRESO] datetime NULL,
+[TARULTRESP] smallint NULL,
+[TARRESPDOC] smallint NULL)
+ON [PRIMARY]
+TEXTIMAGE_ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFTAREAS] SET (LOCK_ESCALATION = TABLE);
+GO

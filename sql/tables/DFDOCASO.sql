@@ -1,0 +1,35 @@
+/****** Object: Table [dbo].[DFDOCASO]   Script Date: 30-08-2025 18:36:51 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFDOCASO] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[DFTipo] nvarchar(1) NOT NULL,
+[DFAno] smallint NOT NULL,
+[DFMes] smallint NOT NULL,
+[DFCor] int NOT NULL,
+[DFOCUR] smallint NOT NULL,
+[DFDOCREF] smallint NOT NULL,
+[DFDOCTIPODOC] smallint NULL,
+[DFDocDocNro] nvarchar(15) NULL,
+[DFDOCMES] smallint NOT NULL,
+[DFDOCCOR] int NOT NULL,
+[DFDOCANO] smallint NOT NULL,
+[DFORGDEP] nvarchar(20) NOT NULL,
+[DFDOCNRO1] int NULL,
+[DFDOCOCUR] smallint NOT NULL,
+[DFDOCDESTIPO] nvarchar(15) NULL,
+[DFDOCCLASF] nvarchar(2) NULL,
+[DFDOCTIPO] nvarchar(1) NOT NULL,
+[DFDOCNRO3] nvarchar(7) NULL,
+[DFDOCMNRO] nvarchar(6) NULL,
+[DFDOCNRO2] nvarchar(7) NULL,
+[DFDOCREPSIGLA] nvarchar(20) NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFDOCASO] SET (LOCK_ESCALATION = TABLE);
+GO

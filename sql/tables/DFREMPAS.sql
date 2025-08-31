@@ -1,0 +1,17 @@
+/****** Object: Table [dbo].[DFREMPAS]   Script Date: 30-08-2025 18:37:29 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFREMPAS] (
+[NOMREM] nvarchar(60) NOT NULL,
+[CIUDAD] nvarchar(18) NULL,
+[DIRECCION] nvarchar(60) NOT NULL,
+[TITULO] nvarchar(60) NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFREMPAS] SET (LOCK_ESCALATION = TABLE);
+GO

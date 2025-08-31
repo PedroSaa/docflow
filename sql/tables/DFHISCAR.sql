@@ -1,0 +1,35 @@
+/****** Object: Table [dbo].[DFHISCAR]   Script Date: 30-08-2025 18:37:09 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFHISCAR] (
+[DFCORGDEP] nvarchar(20) NOT NULL,
+[DFCNIVCOD] nvarchar(20) NOT NULL,
+[DFCID] nvarchar(12) NOT NULL,
+[DFCHIST] smallint NOT NULL,
+[DFCHHRS] nvarchar(8) NULL,
+[DFCHORG] smallint NULL,
+[DFCHDVRUT] nvarchar(1) NULL,
+[DFCHDCLAS] nvarchar(15) NULL,
+[DFCHUSU] nvarchar(8) NULL,
+[DFCHNIVCOD] nvarchar(20) NULL,
+[DFCHRUT] decimal(10, 0) NULL,
+[DFCHCARGO] nvarchar(50) NULL,
+[DFCHDORG] nvarchar(60) NULL,
+[DFCHCLASIF] smallint NULL,
+[DFCHCORG] nvarchar(15) NULL,
+[DFCHNOMBRES] nvarchar(30) NULL,
+[DFCHNIVDESC] nvarchar(60) NULL,
+[DFCHAPMATER] nvarchar(25) NULL,
+[DFCHDES] nvarchar(150) NOT NULL,
+[DFCHFCH] datetime NULL,
+[DFCHTIPO] nvarchar(2) NULL,
+[DFCHAPPATER] nvarchar(25) NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFHISCAR] SET (LOCK_ESCALATION = TABLE);
+GO

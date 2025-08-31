@@ -1,0 +1,19 @@
+/****** Object: Table [dbo].[TMPImagen]   Script Date: 30-08-2025 18:38:43 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[TMPImagen] (
+[TMPIDPK] int IDENTITY(1, 1) NOT NULL,
+[TMPNUMPAG] smallint NULL,
+[TMPFECHAING] datetime NULL,
+[TMPIMAGEN] varbinary(MAX) NULL,
+[TMPGUIDING] uniqueidentifier NULL)
+ON [PRIMARY]
+TEXTIMAGE_ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[TMPImagen] SET (LOCK_ESCALATION = TABLE);
+GO
