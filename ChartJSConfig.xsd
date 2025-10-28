@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="ChartJSConfig">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="type" type="xs:string"/>
+                <xs:element name="elementId" type="xs:string"/>
+                <xs:element name="data" type="DataType"/>
+                <xs:element name="options" type="OptionsType"/>
+                <xs:element name="plugins" type="PluginsType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="DataType">
+        <xs:sequence>
+            <xs:element name="labels" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="datasets" type="DatasetType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="DatasetType">
+        <xs:sequence>
+            <xs:element name="label" type="xs:string"/>
+            <xs:element name="data" type="xs:float" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="backgroundColor" type="xs:string" minOccurs="0"/>
+            <xs:element name="borderColor" type="xs:string" minOccurs="0"/>
+            <xs:element name="borderWidth" type="xs:int" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="OptionsType">
+        <xs:sequence>
+            <xs:element name="responsive" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="title" type="TitleType" minOccurs="0"/>
+            <xs:element name="scales" type="ScalesType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="TitleType">
+        <xs:sequence>
+            <xs:element name="display" type="xs:boolean"/>
+            <xs:element name="text" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ScalesType">
+        <xs:sequence>
+            <xs:element name="xAxes" type="AxisType" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="yAxes" type="AxisType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="AxisType">
+        <xs:sequence>
+            <xs:element name="type" type="xs:string"/>
+            <xs:element name="scaleLabel" type="ScaleLabelType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ScaleLabelType">
+        <xs:sequence>
+            <xs:element name="display" type="xs:boolean"/>
+            <xs:element name="labelString" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="PluginsType">
+        <xs:sequence>
+            <xs:element name="plugin" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
