@@ -1,0 +1,3 @@
+function ChartJSGeneratorSimple(chartConfig) {
+    return `<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>ChartJS Generator</title>\n    <style>\n        body { font-family: Arial, sans-serif; }\n        canvas { max-width: 600px; margin: auto; }\n    </style>\n</head>\n<body>\n    <canvas id=\"myChart\"></canvas>\n    <script src=\"https://cdn.jsdelivr.net/npm/chart.js\"></script>\n    <script>\n        const ctx = document.getElementById('myChart').getContext('2d');\n        const myChart = new Chart(ctx, chartConfig);\n    </script>\n</body>\n</html>`;
+}
