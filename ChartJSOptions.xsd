@@ -1,0 +1,39 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="ChartJSOptions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="responsive" type="xs:boolean" minOccurs="0"/>
+        <xs:element name="animation" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="duration" type="xs:integer" minOccurs="0"/>
+              <xs:element name="easing" type="xs:string" minOccurs="0"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="plugins" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="legend" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="display" type="xs:boolean" minOccurs="0"/>
+                    <xs:element name="position" type="xs:string" minOccurs="0"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="tooltip" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="enabled" type="xs:boolean" minOccurs="0"/>
+                    <xs:element name="mode" type="xs:string" minOccurs="0"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
