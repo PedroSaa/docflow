@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAB Automation Process Diagram</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        canvas {
+            border: 1px solid #000;
+            margin: 20px;
+        }
+        button {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>CAB Automation Process Diagram</h1>
+    <canvas id="diagram" width="800" height="600"></canvas>
+    <button id="download">Download as PNG</button>
+    <button id="copy">Copy to Clipboard</button>
+    <button id="print">Print</button>
+
+    <script>
+        const canvas = document.getElementById('diagram');
+        const ctx = canvas.getContext('2d');
+
+        function drawPhase(x, y, text) {
+            ctx.fillStyle = '#007BFF'; // blue color
+            ctx.fillRect(x, y, 120, 50);
+            ctx.fillStyle = '#FFFFFF';
+            ctx.fillText(text, x + 10, y + 30);
+        }
+
+        function drawDiagram() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear canvas
+            ctx.font = '20px Arial';
+            ctx.textAlign = 'left';
+            ctx.textBaseline = 'middle';
+            drawPhase(50, 50, 'Phase 1');
+            drawPhase(200, 50, 'Phase 2');
+            drawPhase(350, 50, 'Phase 3');
+            drawPhase(500, 50, 'Phase 4');
+            drawPhase(200, 150, 'Phase 5');
+            drawPhase(350, 150, 'Phase 6');
+        }
+
+        document.getElementById('download').addEventListener('click', () => {
+            const link = document.createElement('a');
+            link.download = 'diagram.png';
+            link.href = canvas.toDataURL();
+            link.click();
+        });
+
+        document.getElementById('copy').addEventListener('click', async () => {
+            const img = canvas.toDataURL();
+            navigator.clipboard.write([
+                new ClipboardItem({ 'image/png': (await fetch(img)).blob() })
+            ]);
+            alert('Diagram copied to clipboard');
+        });
+
+        document.getElementById('print').addEventListener('click', () => {
+            const img = canvas.toDataURL();
+            const newWindow = window.open('');
+            newWindow.document.write('<img src="' + img + '" />');
+            newWindow.print();
+            newWindow.close();
+        });
+
+        drawDiagram();
+    </script>
+</body>
+</html>
