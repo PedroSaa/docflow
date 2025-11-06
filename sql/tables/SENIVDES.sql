@@ -1,0 +1,21 @@
+/****** Object: Table [dbo].[SENIVDES]   Script Date: 30-08-2025 18:38:30 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[SENIVDES] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[NivCod] nvarchar(20) NOT NULL,
+[NIVDESPOD] nvarchar(20) NOT NULL,
+[NIVDESP] nvarchar(20) NOT NULL,
+[NIVDJEFE] nvarchar(20) NULL,
+[NIVCONF] smallint NULL,
+[FRECUENCIA] smallint NULL,
+[NIVDDESP] nvarchar(60) NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[SENIVDES] SET (LOCK_ESCALATION = TABLE);
+GO

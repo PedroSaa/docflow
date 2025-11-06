@@ -1,0 +1,27 @@
+/****** Object: Table [dbo].[DFMAILOUT]   Script Date: 30-08-2025 18:37:24 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFMAILOUT] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[DFTipo] nvarchar(1) NOT NULL,
+[DFAno] smallint NOT NULL,
+[DFMes] smallint NOT NULL,
+[DFCor] int NOT NULL,
+[DFCOROUT] smallint NOT NULL,
+[ESTADO] smallint NOT NULL,
+[PARA] nvarchar(250) NOT NULL,
+[DE] nvarchar(250) NOT NULL,
+[OBJETIVO] nvarchar(250) NULL,
+[TEXTO] nvarchar(MAX) NULL,
+[MARCAADJ] smallint NOT NULL,
+[CC] nvarchar(250) NOT NULL)
+ON [PRIMARY]
+TEXTIMAGE_ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFMAILOUT] SET (LOCK_ESCALATION = TABLE);
+GO

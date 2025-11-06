@@ -1,0 +1,23 @@
+/****** Object: Table [dbo].[DFDOCSERIE]   Script Date: 30-08-2025 18:36:52 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFDOCSERIE] (
+[DFDOCID] decimal(12, 0) IDENTITY(1, 1) NOT FOR REPLICATION NOT NULL,
+[ORGDEPCOD] varchar(20) NOT NULL,
+[DFTipo] varchar(1) NOT NULL,
+[DFAno] smallint NOT NULL,
+[DFMes] smallint NOT NULL,
+[DFCor] int NOT NULL,
+[DFOCUR] smallint NOT NULL,
+[DFDOCSerialNumeric] decimal(12, 0) NOT NULL,
+[DFDOCSerialText] char(16) NOT NULL,
+[DFDOCSERIALFECHA] datetime NOT NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFDOCSERIE] SET (LOCK_ESCALATION = TABLE);
+GO

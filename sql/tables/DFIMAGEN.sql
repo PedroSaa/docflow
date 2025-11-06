@@ -1,0 +1,26 @@
+/****** Object: Table [dbo].[DFIMAGEN]   Script Date: 30-08-2025 18:37:16 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFIMAGEN] (
+[ORGDEPCOD] varchar(20) NOT NULL,
+[DFTipo] varchar(1) NOT NULL,
+[DFAno] smallint NOT NULL,
+[DFMes] smallint NOT NULL,
+[DFCor] int NOT NULL,
+[DFOCUR] smallint NOT NULL,
+[DFIMGID] int NOT NULL,
+[DFIMGIMAGEN] varbinary(MAX) NULL,
+[DFIMGFECHAINGRESO] datetime NOT NULL,
+[dfimghora] char(12) NOT NULL,
+[FileID] int NOT NULL,
+[DFIMGPAGINA] smallint NOT NULL)
+ON [PRIMARY]
+TEXTIMAGE_ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFIMAGEN] SET (LOCK_ESCALATION = TABLE);
+GO

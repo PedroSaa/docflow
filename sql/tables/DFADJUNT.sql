@@ -1,0 +1,31 @@
+/****** Object: Table [dbo].[DFADJUNT]   Script Date: 30-08-2025 18:36:35 ******/
+USE [docflowpro];
+GO
+SET ANSI_NULLS ON;
+GO
+SET QUOTED_IDENTIFIER ON;
+GO
+CREATE TABLE [dbo].[DFADJUNT] (
+[ORGDEPCOD] nvarchar(20) NOT NULL,
+[DFTipo] nvarchar(1) NOT NULL,
+[DFAno] smallint NOT NULL,
+[DFMes] smallint NOT NULL,
+[DFCor] int NOT NULL,
+[DFOCUR] smallint NOT NULL,
+[DNUMADJ] int NOT NULL,
+[EXT] nvarchar(20) NULL,
+[NOMBREARCH] nvarchar(250) NULL,
+[NIVCODORIADJ] nvarchar(20) NOT NULL,
+[FIRMADIG] smallint NULL,
+[PORFIRMAR] smallint NULL,
+[USUARIOGENE] nvarchar(25) NOT NULL,
+[USUARIOFIRMADOR] nvarchar(25) NULL,
+[NIVCODFIRMADOR] nvarchar(40) NULL,
+[PLANTILLA] smallint NULL,
+[ArcId] decimal(10, 0) NULL,
+[FileID] int NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+GO
+ALTER TABLE [dbo].[DFADJUNT] SET (LOCK_ESCALATION = TABLE);
+GO
